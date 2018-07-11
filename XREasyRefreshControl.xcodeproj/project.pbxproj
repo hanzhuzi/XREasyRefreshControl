@@ -12,15 +12,15 @@
 		0125F41B20F601760027C078 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0125F41920F601760027C078 /* Main.storyboard */; };
 		0125F41D20F601770027C078 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0125F41C20F601770027C078 /* Assets.xcassets */; };
 		0125F42020F601770027C078 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0125F41E20F601770027C078 /* LaunchScreen.storyboard */; };
-		0125F43420F601990027C078 /* XRRefreshControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F42820F601990027C078 /* XRRefreshControlSettings.swift */; };
-		0125F43520F601990027C078 /* XRBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F42A20F601990027C078 /* XRBaseRefreshHeader.swift */; };
-		0125F43620F601990027C078 /* XRActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F42B20F601990027C078 /* XRActivityRefreshHeader.swift */; };
-		0125F43720F601990027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F42C20F601990027C078 /* XRCircleAnimatorRefreshHeader.swift */; };
-		0125F43820F601990027C078 /* UIScrollView+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F42E20F601990027C078 /* UIScrollView+XRRefresh.swift */; };
-		0125F43920F601990027C078 /* DispatchQueue+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F42F20F601990027C078 /* DispatchQueue+XRRefresh.swift */; };
-		0125F43A20F601990027C078 /* UIView+XRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43020F601990027C078 /* UIView+XRExtension.swift */; };
-		0125F43B20F601990027C078 /* XRBaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43220F601990027C078 /* XRBaseRefreshFooter.swift */; };
-		0125F43C20F601990027C078 /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43320F601990027C078 /* XRActivityRefreshFooter.swift */; };
+		0125F44720F612780027C078 /* UIScrollView+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */; };
+		0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */; };
+		0125F44920F612780027C078 /* XRBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44020F612780027C078 /* XRBaseRefreshHeader.swift */; };
+		0125F44A20F612780027C078 /* XRActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44120F612780027C078 /* XRActivityRefreshHeader.swift */; };
+		0125F44B20F612780027C078 /* XRBaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44220F612780027C078 /* XRBaseRefreshFooter.swift */; };
+		0125F44C20F612780027C078 /* DispatchQueue+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */; };
+		0125F44D20F612780027C078 /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */; };
+		0125F44E20F612780027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */; };
+		0125F44F20F612780027C078 /* UIView+XRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44620F612780027C078 /* UIView+XRExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,15 +31,15 @@
 		0125F41C20F601770027C078 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0125F41F20F601770027C078 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0125F42120F601770027C078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0125F42820F601990027C078 /* XRRefreshControlSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRRefreshControlSettings.swift; sourceTree = "<group>"; };
-		0125F42A20F601990027C078 /* XRBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshHeader.swift; sourceTree = "<group>"; };
-		0125F42B20F601990027C078 /* XRActivityRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshHeader.swift; sourceTree = "<group>"; };
-		0125F42C20F601990027C078 /* XRCircleAnimatorRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRCircleAnimatorRefreshHeader.swift; sourceTree = "<group>"; };
-		0125F42E20F601990027C078 /* UIScrollView+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRRefresh.swift"; sourceTree = "<group>"; };
-		0125F42F20F601990027C078 /* DispatchQueue+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+XRRefresh.swift"; sourceTree = "<group>"; };
-		0125F43020F601990027C078 /* UIView+XRExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XRExtension.swift"; sourceTree = "<group>"; };
-		0125F43220F601990027C078 /* XRBaseRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshFooter.swift; sourceTree = "<group>"; };
-		0125F43320F601990027C078 /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
+		0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRRefresh.swift"; sourceTree = "<group>"; };
+		0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRRefreshControlSettings.swift; sourceTree = "<group>"; };
+		0125F44020F612780027C078 /* XRBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshHeader.swift; sourceTree = "<group>"; };
+		0125F44120F612780027C078 /* XRActivityRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshHeader.swift; sourceTree = "<group>"; };
+		0125F44220F612780027C078 /* XRBaseRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshFooter.swift; sourceTree = "<group>"; };
+		0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+XRRefresh.swift"; sourceTree = "<group>"; };
+		0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
+		0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRCircleAnimatorRefreshHeader.swift; sourceTree = "<group>"; };
+		0125F44620F612780027C078 /* UIView+XRExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XRExtension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +56,7 @@
 		0125F40920F601760027C078 = {
 			isa = PBXGroup;
 			children = (
+				0125F43D20F612780027C078 /* Source */,
 				0125F41420F601760027C078 /* XREasyRefreshControl */,
 				0125F41320F601760027C078 /* Products */,
 			);
@@ -72,7 +73,6 @@
 		0125F41420F601760027C078 /* XREasyRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
-				0125F42720F601990027C078 /* Classes */,
 				0125F41520F601760027C078 /* AppDelegate.swift */,
 				0125F41720F601760027C078 /* ViewController.swift */,
 				0125F41920F601760027C078 /* Main.storyboard */,
@@ -83,44 +83,20 @@
 			path = XREasyRefreshControl;
 			sourceTree = "<group>";
 		};
-		0125F42720F601990027C078 /* Classes */ = {
+		0125F43D20F612780027C078 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0125F42820F601990027C078 /* XRRefreshControlSettings.swift */,
-				0125F43120F601990027C078 /* RefreshFooter */,
-				0125F42920F601990027C078 /* RefreshHeader */,
-				0125F42D20F601990027C078 /* Extensions */,
+				0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */,
+				0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */,
+				0125F44020F612780027C078 /* XRBaseRefreshHeader.swift */,
+				0125F44120F612780027C078 /* XRActivityRefreshHeader.swift */,
+				0125F44220F612780027C078 /* XRBaseRefreshFooter.swift */,
+				0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */,
+				0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */,
+				0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */,
+				0125F44620F612780027C078 /* UIView+XRExtension.swift */,
 			);
-			path = Classes;
-			sourceTree = "<group>";
-		};
-		0125F42920F601990027C078 /* RefreshHeader */ = {
-			isa = PBXGroup;
-			children = (
-				0125F42A20F601990027C078 /* XRBaseRefreshHeader.swift */,
-				0125F42B20F601990027C078 /* XRActivityRefreshHeader.swift */,
-				0125F42C20F601990027C078 /* XRCircleAnimatorRefreshHeader.swift */,
-			);
-			path = RefreshHeader;
-			sourceTree = "<group>";
-		};
-		0125F42D20F601990027C078 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				0125F42E20F601990027C078 /* UIScrollView+XRRefresh.swift */,
-				0125F42F20F601990027C078 /* DispatchQueue+XRRefresh.swift */,
-				0125F43020F601990027C078 /* UIView+XRExtension.swift */,
-			);
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0125F43120F601990027C078 /* RefreshFooter */ = {
-			isa = PBXGroup;
-			children = (
-				0125F43220F601990027C078 /* XRBaseRefreshFooter.swift */,
-				0125F43320F601990027C078 /* XRActivityRefreshFooter.swift */,
-			);
-			path = RefreshFooter;
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -194,17 +170,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0125F43420F601990027C078 /* XRRefreshControlSettings.swift in Sources */,
-				0125F43B20F601990027C078 /* XRBaseRefreshFooter.swift in Sources */,
-				0125F43C20F601990027C078 /* XRActivityRefreshFooter.swift in Sources */,
-				0125F43920F601990027C078 /* DispatchQueue+XRRefresh.swift in Sources */,
-				0125F43720F601990027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */,
-				0125F43820F601990027C078 /* UIScrollView+XRRefresh.swift in Sources */,
-				0125F43520F601990027C078 /* XRBaseRefreshHeader.swift in Sources */,
-				0125F43A20F601990027C078 /* UIView+XRExtension.swift in Sources */,
+				0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */,
+				0125F44C20F612780027C078 /* DispatchQueue+XRRefresh.swift in Sources */,
 				0125F41820F601760027C078 /* ViewController.swift in Sources */,
-				0125F43620F601990027C078 /* XRActivityRefreshHeader.swift in Sources */,
+				0125F44920F612780027C078 /* XRBaseRefreshHeader.swift in Sources */,
+				0125F44B20F612780027C078 /* XRBaseRefreshFooter.swift in Sources */,
+				0125F44A20F612780027C078 /* XRActivityRefreshHeader.swift in Sources */,
+				0125F44F20F612780027C078 /* UIView+XRExtension.swift in Sources */,
 				0125F41620F601760027C078 /* AppDelegate.swift in Sources */,
+				0125F44E20F612780027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */,
+				0125F44720F612780027C078 /* UIScrollView+XRRefresh.swift in Sources */,
+				0125F44D20F612780027C078 /* XRActivityRefreshFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
