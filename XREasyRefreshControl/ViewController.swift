@@ -29,7 +29,7 @@ class ViewController: UIViewController {
         }
         
         self.view.addSubview(mainTableView)
-        mainTableView.frame = CGRect(x: 0, y: 64, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - 64 - 49)
+        mainTableView.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight - 49 - (iSiPhoneX() ? 34 : 0))
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         footerVw.backgroundColor = UIColor.purple.withAlphaComponent(0.5)
         mainTableView.tableFooterView = footerVw
         
-        mainTableView.addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(frame: CGRect.zero), heightForHeader: 70) {
+        mainTableView.xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70) {
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
                 self.dataArray.removeAll()
@@ -57,15 +57,15 @@ class ViewController: UIViewController {
                     self.dataArray.append("\(index)")
                 }
                 self.mainTableView.reloadData()
-                self.mainTableView.endHeaderRefreshing()
+                self.mainTableView.xr_endHeaderRefreshing()
                 
-                self.mainTableView.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(frame: CGRect.zero), heightForFooter: 55) {
+                self.mainTableView.xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
                         for index in 0 ..< 5 {
                             self.dataArray.append("\(index)")
                         }
                         self.mainTableView.reloadData()
-                        self.mainTableView.endFooterRefreshing()
+                        self.mainTableView.xr_endFooterRefreshing()
                     })
                 }
             })
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        mainTableView.beginHeaderRefreshing()
+        mainTableView.xr_beginHeaderRefreshing()
     }
     
     override func didReceiveMemoryWarning() {

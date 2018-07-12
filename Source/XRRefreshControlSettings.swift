@@ -1,10 +1,26 @@
 //
 //  XRRefreshControlSettings.swift
-//  TeaExpoentNet
 //
-//  Created by 徐冉 on 2018/7/10.
-//  Copyright © 2018年 是心作佛. All rights reserved.
+//  Copyright (c) 2018 - 2020 Ran Xu
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+
 /**
  - XREasyRefreshControl 全局配置文件
  */
@@ -24,10 +40,10 @@ public enum XRPullRefreshState {
     case noMoreData     // 没有更多数据了
 }
 
-// 上拉加载模式
-// @上拉时需要松手才进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
-// @上拉时不需要松手即可进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
-// @上拉时只要footerView一出现即可进行刷新操作，上拉距离超出contentSize.height+contentInset.bottom
+// 上拉加载触发方式
+// 上拉时需要松手才进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
+// 上拉时不需要松手即可进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
+// 上拉时只要footerView一出现即可进行刷新操作，上拉距离超出contentSize.height+contentInset.bottom
 public enum XRRefreshFooterPullLoadingMode {
     case needPullRelease       // 需要松手才进行刷新
     case ignorePullRelease     // 只要达到一定的上拉距离即进行刷新
@@ -55,16 +71,16 @@ public class XRRefreshControlSettings: NSObject {
     }
     
     /**
-     @brief 全局配置刷新控件
-     
-     - animateTimeForAdjustContentInSetTop     下拉后停留在刷新时的动画时间
-     - animateTimeForEndRefreshContentInSetTop 结束刷新的动画时间
-     - afterDelayTimeForEndInsetTopRefreshing  刷新完成后延时结束时间
-     - pullLoadingMoreMode 上拉加载触发模式
-     - animateCircleLayerGradientColors     下拉刷新控件渐变颜色值数组
-     - animateCircleLayerGradientLocations  下拉刷新控件渐变位置数组
-     - refreshStatusLblTextColor 刷新控件文字颜色
-     - refreshStatusLblTextFont  刷新控件文字字体
+     * @brief 全局配置刷新控件
+     *
+     * @param animateTimeForAdjustContentInSetTop     下拉后停留在刷新时的动画时间
+     * @param animateTimeForEndRefreshContentInSetTop 结束刷新的动画时间
+     * @param afterDelayTimeForEndInsetTopRefreshing  刷新完成后延时结束时间
+     * @param pullLoadingMoreMode                     上拉加载触发模式
+     * @param animateCircleLayerGradientColors        下拉刷新控件渐变颜色值数组
+     * @param animateCircleLayerGradientLocations     下拉刷新控件渐变位置数组
+     * @param refreshStatusLblTextColor               刷新控件文字颜色
+     * @param refreshStatusLblTextFont                刷新控件文字字体
      */
     public func configSettings(animateTimeForAdjustContentInSetTop: TimeInterval,
                         animateTimeForEndRefreshContentInSetTop: TimeInterval,

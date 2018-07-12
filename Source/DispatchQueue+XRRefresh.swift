@@ -1,17 +1,32 @@
 //
 //  DispatchQueue+XRRefresh.swift
-//  TeaExpoentNet
 //
-//  Created by 徐冉 on 2018/7/6.
-//  Copyright © 2018年 是心作佛. All rights reserved.
+//  Copyright (c) 2018 - 2020 Ran Xu
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import Foundation
 
 extension DispatchQueue {
     
-    ///延迟 afTime, 回调 block(in main 在主线程)
     class func xr_dispatch_after_in_main(_ afTime: TimeInterval,block: @escaping ()->()) {
+        
         let popTime = DispatchTime.now() + Double(Int64(afTime * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC) // 1s * popTime
         
         if popTime > DispatchTime(uptimeNanoseconds: 0) {

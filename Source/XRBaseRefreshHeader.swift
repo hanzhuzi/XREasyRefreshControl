@@ -1,13 +1,25 @@
 //
 //  XRBaseRefreshHeader.swift
-//  XREasyRefreshControl
 //
-//  Created by 徐冉 on 2018/6/20.
-//  Copyright © 2018年 是心作佛. All rights reserved.
+//  Copyright (c) 2018 - 2020 Ran Xu
 //
-/**
- - 下拉刷新基类
- */
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import UIKit
 
@@ -18,7 +30,7 @@ private let keyPathForContentOffset: String = "contentOffset"
     @objc optional func pullProgressValueChanged()
 }
 
-public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
+open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
     
     private var scroller: UIScrollView?
     private var contentInset_top: CGFloat = 0
@@ -49,8 +61,10 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
     
     var refreshingClosure: (() -> Swift.Void)?
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    
+    // MARK: - init
+    init() {
+        super.init(frame: CGRect.zero)
         
         self.prepareForRefresh()
     }
@@ -59,7 +73,7 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override public func willMove(toSuperview newSuperview: UIView?) {
+    override open func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
         if let scroller = newSuperview as? UIScrollView {
@@ -69,7 +83,7 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
-    override public func didMoveToSuperview() {
+    override open func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         if let scroller = self.superview as? UIScrollView {
@@ -79,7 +93,7 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
-    override public func removeFromSuperview() {
+    override open func removeFromSuperview() {
         
         if let scroller = self.superview as? UIScrollView {
             scroller.removeObserver(self, forKeyPath: keyPathForContentOffset)
@@ -87,17 +101,17 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         super.removeFromSuperview()
     }
     
-    /// 子类根据自己的需求实现以下方法
-    public func refreshStateChanged() {
+    // MARK: - Override Methods
+    open func refreshStateChanged() {
         
     }
     
-    public func pullProgressValueChanged() {
+    open func pullProgressValueChanged() {
         
     }
     
-    // 初始化
-    public func prepareForRefresh() {
+    // MARK: - Initlzation
+    open func prepareForRefresh() {
         
         self.refreshState = .idle
         self.backgroundColor = UIColor.clear
@@ -117,7 +131,7 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         UIView.animate(withDuration: XRRefreshControlSettings.sharedSetting.animateTimeForAdjustContentInSetTop, animations: {
             scroller_.xr_contentInsetTop = -fullDisplayOffsetY
         }) { (_) in
-            // 不能在这里设置contentInset.top，会抖动.
+            // you can't set contentinset-top here, it will shake.
         }
     }
     
@@ -140,7 +154,7 @@ public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
     }
     
     // MARK: - Observe Lisener
-    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         // contentOffset changed.
         if let keyPath_ = keyPath {

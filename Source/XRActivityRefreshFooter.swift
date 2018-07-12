@@ -1,20 +1,35 @@
 //
 //  XRActivityRefreshFooter.swift
-//  XRRefresh
 //
-//  Created by 徐冉 on 2018/6/27.
-//  Copyright © 2018年 是心作佛. All rights reserved.
+//  Copyright (c) 2018 - 2020 Ran Xu
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import UIKit
 
-class XRActivityRefreshFooter: XRBaseRefreshFooter {
-
+public class XRActivityRefreshFooter: XRBaseRefreshFooter {
+    
     lazy var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
     lazy var statusLbl: UILabel = UILabel(frame: CGRect.zero)
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init() {
+        super.init()
         
         self.backgroundColor = UIColor.clear
         
@@ -38,11 +53,11 @@ class XRActivityRefreshFooter: XRBaseRefreshFooter {
         statusLbl.addGestureRecognizer(statusLblTapGestrue)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
+    override open func layoutSubviews() {
         super.layoutSubviews()
         
         if self.refreshState == .noMoreData || self.refreshState == .loadingFailure {
@@ -55,12 +70,12 @@ class XRActivityRefreshFooter: XRBaseRefreshFooter {
         activityIndicator.frame = CGRect(x: statusLbl.frame.origin.x - 35, y: (self.bounds.size.height - 35) * 0.5, width: 35, height: 35)
     }
     
-    override func prepareForRefresh() {
+    override public func prepareForRefresh() {
         super.prepareForRefresh()
         
     }
     
-    override func refreshStateChanged() {
+    override public func refreshStateChanged() {
         
         switch refreshState {
         case .idle:
@@ -111,7 +126,7 @@ class XRActivityRefreshFooter: XRBaseRefreshFooter {
     }
     
     // pull progress changed
-    override func pullProgressValueChanged() {
+    override public func pullProgressValueChanged() {
         
     }
     

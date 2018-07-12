@@ -14,14 +14,15 @@
 		0125F42020F601770027C078 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0125F41E20F601770027C078 /* LaunchScreen.storyboard */; };
 		0125F44720F612780027C078 /* UIScrollView+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */; };
 		0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */; };
-		0125F44920F612780027C078 /* XRBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44020F612780027C078 /* XRBaseRefreshHeader.swift */; };
-		0125F44A20F612780027C078 /* XRActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44120F612780027C078 /* XRActivityRefreshHeader.swift */; };
-		0125F44B20F612780027C078 /* XRBaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44220F612780027C078 /* XRBaseRefreshFooter.swift */; };
 		0125F44C20F612780027C078 /* DispatchQueue+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */; };
-		0125F44D20F612780027C078 /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */; };
-		0125F44E20F612780027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */; };
 		0125F44F20F612780027C078 /* UIView+XRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44620F612780027C078 /* UIView+XRExtension.swift */; };
 		012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */; };
+		012B4C9320F789AD0049BB5A /* Marcos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9220F789AD0049BB5A /* Marcos.swift */; };
+		012B4C9B20F78BEF0049BB5A /* XRBaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9620F78BEF0049BB5A /* XRBaseRefreshFooter.swift */; };
+		012B4C9C20F78BEF0049BB5A /* XRBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9720F78BEF0049BB5A /* XRBaseRefreshHeader.swift */; };
+		012B4C9D20F78BEF0049BB5A /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9820F78BEF0049BB5A /* XRActivityRefreshFooter.swift */; };
+		012B4C9E20F78BEF0049BB5A /* XRActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9920F78BEF0049BB5A /* XRActivityRefreshHeader.swift */; };
+		012B4C9F20F78BEF0049BB5A /* XRCircleAnimatorRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9A20F78BEF0049BB5A /* XRCircleAnimatorRefreshHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,14 +35,15 @@
 		0125F42120F601770027C078 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRRefresh.swift"; sourceTree = "<group>"; };
 		0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRRefreshControlSettings.swift; sourceTree = "<group>"; };
-		0125F44020F612780027C078 /* XRBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshHeader.swift; sourceTree = "<group>"; };
-		0125F44120F612780027C078 /* XRActivityRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshHeader.swift; sourceTree = "<group>"; };
-		0125F44220F612780027C078 /* XRBaseRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshFooter.swift; sourceTree = "<group>"; };
 		0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+XRRefresh.swift"; sourceTree = "<group>"; };
-		0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
-		0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRCircleAnimatorRefreshHeader.swift; sourceTree = "<group>"; };
 		0125F44620F612780027C078 /* UIView+XRExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XRExtension.swift"; sourceTree = "<group>"; };
 		012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRCustomGifRefreshHeader.swift; sourceTree = "<group>"; };
+		012B4C9220F789AD0049BB5A /* Marcos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marcos.swift; sourceTree = "<group>"; };
+		012B4C9620F78BEF0049BB5A /* XRBaseRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshFooter.swift; sourceTree = "<group>"; };
+		012B4C9720F78BEF0049BB5A /* XRBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshHeader.swift; sourceTree = "<group>"; };
+		012B4C9820F78BEF0049BB5A /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
+		012B4C9920F78BEF0049BB5A /* XRActivityRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshHeader.swift; sourceTree = "<group>"; };
+		012B4C9A20F78BEF0049BB5A /* XRCircleAnimatorRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRCircleAnimatorRefreshHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				0125F41520F601760027C078 /* AppDelegate.swift */,
+				012B4C9220F789AD0049BB5A /* Marcos.swift */,
 				0125F41720F601760027C078 /* ViewController.swift */,
 				012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */,
 				0125F41920F601760027C078 /* Main.storyboard */,
@@ -89,17 +92,41 @@
 		0125F43D20F612780027C078 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */,
+				012B4CA120F78C190049BB5A /* Core */,
+				012B4C9420F78B6B0049BB5A /* Extension */,
 				0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */,
-				0125F44020F612780027C078 /* XRBaseRefreshHeader.swift */,
-				0125F44120F612780027C078 /* XRActivityRefreshHeader.swift */,
-				0125F44220F612780027C078 /* XRBaseRefreshFooter.swift */,
-				0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */,
-				0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */,
-				0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */,
-				0125F44620F612780027C078 /* UIView+XRExtension.swift */,
 			);
 			path = Source;
+			sourceTree = "<group>";
+		};
+		012B4C9420F78B6B0049BB5A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0125F43E20F612780027C078 /* UIScrollView+XRRefresh.swift */,
+				0125F44320F612780027C078 /* DispatchQueue+XRRefresh.swift */,
+				0125F44620F612780027C078 /* UIView+XRExtension.swift */,
+			);
+			name = Extension;
+			sourceTree = "<group>";
+		};
+		012B4CA120F78C190049BB5A /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				012B4C9A20F78BEF0049BB5A /* XRCircleAnimatorRefreshHeader.swift */,
+				012B4C9820F78BEF0049BB5A /* XRActivityRefreshFooter.swift */,
+				012B4C9920F78BEF0049BB5A /* XRActivityRefreshHeader.swift */,
+				012B4CA220F7916A0049BB5A /* Base */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		012B4CA220F7916A0049BB5A /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				012B4C9620F78BEF0049BB5A /* XRBaseRefreshFooter.swift */,
+				012B4C9720F78BEF0049BB5A /* XRBaseRefreshHeader.swift */,
+			);
+			name = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -175,16 +202,17 @@
 			files = (
 				0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */,
 				0125F44C20F612780027C078 /* DispatchQueue+XRRefresh.swift in Sources */,
+				012B4C9D20F78BEF0049BB5A /* XRActivityRefreshFooter.swift in Sources */,
+				012B4C9E20F78BEF0049BB5A /* XRActivityRefreshHeader.swift in Sources */,
 				0125F41820F601760027C078 /* ViewController.swift in Sources */,
-				0125F44920F612780027C078 /* XRBaseRefreshHeader.swift in Sources */,
-				0125F44B20F612780027C078 /* XRBaseRefreshFooter.swift in Sources */,
-				0125F44A20F612780027C078 /* XRActivityRefreshHeader.swift in Sources */,
 				0125F44F20F612780027C078 /* UIView+XRExtension.swift in Sources */,
 				0125F41620F601760027C078 /* AppDelegate.swift in Sources */,
+				012B4C9B20F78BEF0049BB5A /* XRBaseRefreshFooter.swift in Sources */,
+				012B4C9F20F78BEF0049BB5A /* XRCircleAnimatorRefreshHeader.swift in Sources */,
 				012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */,
-				0125F44E20F612780027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */,
+				012B4C9C20F78BEF0049BB5A /* XRBaseRefreshHeader.swift in Sources */,
+				012B4C9320F789AD0049BB5A /* Marcos.swift in Sources */,
 				0125F44720F612780027C078 /* UIScrollView+XRRefresh.swift in Sources */,
-				0125F44D20F612780027C078 /* XRActivityRefreshFooter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

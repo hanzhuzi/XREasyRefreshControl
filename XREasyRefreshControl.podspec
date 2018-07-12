@@ -7,9 +7,9 @@
 
 Pod::Spec.new do |s|
   s.name = 'XREasyRefreshControl'
-  s.version = '0.4'
+  s.version = '1.0.0'
   s.license = 'MIT'
-  s.summary = 'A simple and easy to use refresh control, you can customize your personality refresh'
+  s.summary = 'A powerful and lightweight pull-down refresh and pull-up load control., you can customize your personality refresh'
   s.homepage = 'https://github.com/hanzhuzi/XREasyRefreshControl'
   s.authors = { 'hanzhuzi' => '1754410821@qq.com' }
   s.source = { :git => 'https://github.com/hanzhuzi/XREasyRefreshControl.git', :tag => s.version }
@@ -18,7 +18,9 @@ Pod::Spec.new do |s|
   # s.osx.deployment_target = '10.10'
   # s.tvos.deployment_target = '9.0'
   # s.watchos.deployment_target = '2.0'
+  s.ios.framework  = 'UIKit', 'Foundation'
 
+  s.module_name = 'XREasyRefresh'
   s.swift_version = '3.2'
   s.source_files = 'Source/*.swift'
 end

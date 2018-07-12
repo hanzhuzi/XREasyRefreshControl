@@ -1,20 +1,26 @@
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+//  UIScrollView+XRRefresh.swift
+//  
+//  Copyright (c) 2018 - 2020 Ran Xu
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
+
 
 import Foundation
 import UIKit
@@ -46,7 +52,7 @@ extension UIScrollView {
     }
     
     /// MARK: - Pull to refreshing
-    internal func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    public func xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         self.refreshHeaderView?.removeFromSuperview()
         
@@ -65,19 +71,19 @@ extension UIScrollView {
     }
     
     // 手动下拉刷新
-    internal func beginHeaderRefreshing() {
+    public func xr_beginHeaderRefreshing() {
         
         self.refreshHeaderView?.beginRefreshing()
     }
     
     // 结束下拉刷新
-    internal func endHeaderRefreshing() {
+    public func xr_endHeaderRefreshing() {
         
         self.refreshHeaderView?.endRefreshing()
     }
     
     // MARK: - Pull to loading more
-    internal func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    public func xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         // remove last refreshFooter
         self.refreshFooterView?.removeFromSuperview()
@@ -97,25 +103,25 @@ extension UIScrollView {
     }
     
     // 结束底部刷新方法，请务必在数据加载完成后TableView or CollectionView reloadData之后结束刷新
-    internal func endFooterRefreshing() {
+    public func xr_endFooterRefreshing() {
         
         self.refreshFooterView?.endRefreshing()
     }
     
     // 结束刷新，底部显示没有更多数据了
-    internal func endFooterRefreshingWithNoMoreData() {
+    public func xr_endFooterRefreshingWithNoMoreData() {
         
         self.refreshFooterView?.endRefreshingWithNoMoreData()
     }
     
     // 结束刷新，数据加载失败了，点击重新加载更多
-    internal func endFooterRefreshingWithLoadingFailure() {
+    public func xr_endFooterRefreshingWithLoadingFailure() {
         
         self.refreshFooterView?.endRefreshingWithLoadingFailure()
     }
     
     // 结束刷新，数据全部加载完毕了，移除footerRefresh
-    internal func endFooterRefreshingWithRemoveLoadingMoreView() {
+    public func xr_endFooterRefreshingWithRemoveLoadingMoreView() {
         
         self.refreshFooterView?.removeLoadMoreRefreshing()
     }
