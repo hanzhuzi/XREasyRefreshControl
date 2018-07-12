@@ -9,7 +9,7 @@ Pod::Spec.new do |s|
   s.name = 'XREasyRefreshControl'
   s.version = '1.0.0'
   s.license = 'MIT'
-  s.summary = 'A powerful and lightweight pull-down refresh and pull-up load control., you can customize your personality refresh'
+  s.summary = 'A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.'
   s.homepage = 'https://github.com/hanzhuzi/XREasyRefreshControl'
   s.authors = { 'hanzhuzi' => '1754410821@qq.com' }
   s.source = { :git => 'https://github.com/hanzhuzi/XREasyRefreshControl.git', :tag => s.version }

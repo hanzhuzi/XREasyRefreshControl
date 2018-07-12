@@ -28,7 +28,7 @@ public class XRActivityRefreshFooter: XRBaseRefreshFooter {
     lazy var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
     lazy var statusLbl: UILabel = UILabel(frame: CGRect.zero)
     
-    override init() {
+    override public init() {
         super.init()
         
         self.backgroundColor = UIColor.clear

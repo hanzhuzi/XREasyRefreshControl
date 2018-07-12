@@ -59,7 +59,7 @@ open class XRBaseRefreshFooter: UIView {
     
     
     // MARK: - init
-    init() {
+    public init() {
         super.init(frame: CGRect.zero)
         
         self.prepareForRefresh()

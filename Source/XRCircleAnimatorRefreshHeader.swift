@@ -31,7 +31,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     lazy var circleLayer: CAShapeLayer = CAShapeLayer()
     lazy var gradientLayer: CAGradientLayer = CAGradientLayer()
     
-    override init() {
+    override public init() {
         super.init()
         
         circleLayer.backgroundColor = UIColor.clear.cgColor
