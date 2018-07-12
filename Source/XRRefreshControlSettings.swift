@@ -13,7 +13,7 @@ import Foundation
 import UIKit
 
 // 刷新状态
-enum XRPullRefreshState {
+public enum XRPullRefreshState {
     case idle           // 闲置时
     case pulling        // 下拉中(未超过可以刷新的下拉高度)
     case pullHalfing    // 下拉中（已超过可以刷新的下拉高度的一半）
@@ -28,13 +28,13 @@ enum XRPullRefreshState {
 // @上拉时需要松手才进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
 // @上拉时不需要松手即可进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
 // @上拉时只要footerView一出现即可进行刷新操作，上拉距离超出contentSize.height+contentInset.bottom
-enum XRRefreshFooterPullLoadingMode {
+public enum XRRefreshFooterPullLoadingMode {
     case needPullRelease       // 需要松手才进行刷新
     case ignorePullRelease     // 只要达到一定的上拉距离即进行刷新
     case ignorePullReleaseFast // 不需要用户松手，上拉距离忽略footer的高度
 }
 
-class XRRefreshControlSettings: NSObject {
+public class XRRefreshControlSettings: NSObject {
     
     public var screenSize: CGSize = UIScreen.main.bounds.size
     public var animateTimeForAdjustContentInSetTop: TimeInterval = 0.6
@@ -48,7 +48,7 @@ class XRRefreshControlSettings: NSObject {
     public var refreshStatusLblTextColor: UIColor = XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333)
     public var refreshStatusLblTextFont: UIFont = UIFont.systemFont(ofSize: 14)
     
-    static let sharedSetting: XRRefreshControlSettings = XRRefreshControlSettings()
+    public static let sharedSetting: XRRefreshControlSettings = XRRefreshControlSettings()
     
     private override init() {
         super.init()

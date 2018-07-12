@@ -46,7 +46,7 @@ extension UIScrollView {
     }
     
     /// MARK: - Pull to refreshing
-    func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    internal func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         self.refreshHeaderView?.removeFromSuperview()
         
@@ -65,19 +65,19 @@ extension UIScrollView {
     }
     
     // 手动下拉刷新
-    func beginHeaderRefreshing() {
+    internal func beginHeaderRefreshing() {
         
         self.refreshHeaderView?.beginRefreshing()
     }
     
     // 结束下拉刷新
-    func endHeaderRefreshing() {
+    internal func endHeaderRefreshing() {
         
         self.refreshHeaderView?.endRefreshing()
     }
     
     // MARK: - Pull to loading more
-    func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    internal func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         // remove last refreshFooter
         self.refreshFooterView?.removeFromSuperview()
@@ -97,25 +97,25 @@ extension UIScrollView {
     }
     
     // 结束底部刷新方法，请务必在数据加载完成后TableView or CollectionView reloadData之后结束刷新
-    func endFooterRefreshing() {
+    internal func endFooterRefreshing() {
         
         self.refreshFooterView?.endRefreshing()
     }
     
     // 结束刷新，底部显示没有更多数据了
-    func endFooterRefreshingWithNoMoreData() {
+    internal func endFooterRefreshingWithNoMoreData() {
         
         self.refreshFooterView?.endRefreshingWithNoMoreData()
     }
     
     // 结束刷新，数据加载失败了，点击重新加载更多
-    func endFooterRefreshingWithLoadingFailure() {
+    internal func endFooterRefreshingWithLoadingFailure() {
         
         self.refreshFooterView?.endRefreshingWithLoadingFailure()
     }
     
     // 结束刷新，数据全部加载完毕了，移除footerRefresh
-    func endFooterRefreshingWithRemoveLoadingMoreView() {
+    internal func endFooterRefreshingWithRemoveLoadingMoreView() {
         
         self.refreshFooterView?.removeLoadMoreRefreshing()
     }

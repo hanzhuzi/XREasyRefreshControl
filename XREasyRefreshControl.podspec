@@ -11,8 +11,7 @@ Pod::Spec.new do |s|
   s.license = 'MIT'
   s.summary = 'A simple and easy to use refresh control, you can customize your personality refresh'
   s.homepage = 'https://github.com/hanzhuzi/XREasyRefreshControl'
-  s.social_media_url = 'http://twitter.com/AlamofireSF'
-  s.authors = { 'Alamofire Software Foundation' => 'info@alamofire.org' }
+  s.authors = { 'hanzhuzi' => '1754410821@qq.com' }
   s.source = { :git => 'https://github.com/hanzhuzi/XREasyRefreshControl.git', :tag => s.version }
 
   s.ios.deployment_target = '8.0'

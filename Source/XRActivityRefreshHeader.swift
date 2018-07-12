@@ -8,7 +8,7 @@
 
 import UIKit
 
-class XRActivityRefreshHeader: XRBaseRefreshHeader {
+public class XRActivityRefreshHeader: XRBaseRefreshHeader {
 
     lazy var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
     lazy var statusLbl: UILabel = UILabel(frame: CGRect.zero)
@@ -33,11 +33,11 @@ class XRActivityRefreshHeader: XRBaseRefreshHeader {
         self.addSubview(statusLbl)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
@@ -47,7 +47,7 @@ class XRActivityRefreshHeader: XRBaseRefreshHeader {
         statusLbl.center = CGPoint(x: activityIndicator.center.x, y: activityIndicator.center.y + 25)
     }
     
-    override func refreshStateChanged() {
+    override public func refreshStateChanged() {
         
         switch refreshState {
         case .idle:
@@ -80,7 +80,7 @@ class XRActivityRefreshHeader: XRBaseRefreshHeader {
     }
     
     // pull progress changed
-    override func pullProgressValueChanged() {
+    override public func pullProgressValueChanged() {
         
     }
 

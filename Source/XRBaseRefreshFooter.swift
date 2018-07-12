@@ -15,7 +15,7 @@ import Foundation
 private let keyPathForContentOffset: String = "contentOffset"
 private let keyPathForContentSize: String = "contentSize"
 
-class XRBaseRefreshFooter: UIView {
+open class XRBaseRefreshFooter: UIView {
     
     private var scroller: UIScrollView?
     
@@ -51,11 +51,11 @@ class XRBaseRefreshFooter: UIView {
         self.prepareForRefresh()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override open func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
         if let scroller = newSuperview as? UIScrollView {
@@ -65,7 +65,7 @@ class XRBaseRefreshFooter: UIView {
         }
     }
     
-    override func didMoveToSuperview() {
+    override open func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         if let scroller = self.superview as? UIScrollView {
@@ -84,7 +84,7 @@ class XRBaseRefreshFooter: UIView {
         }
     }
     
-    override func removeFromSuperview() {
+    override open func removeFromSuperview() {
         
         if let scroller = self.superview as? UIScrollView {
             scroller.removeObserver(self, forKeyPath: keyPathForContentOffset, context: nil)
@@ -241,7 +241,7 @@ class XRBaseRefreshFooter: UIView {
     }
     
     // MARK: - Observe Lisener
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override open func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         if let keyPath_ = keyPath {
             if keyPath_ == keyPathForContentSize {

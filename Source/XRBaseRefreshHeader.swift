@@ -18,7 +18,7 @@ private let keyPathForContentOffset: String = "contentOffset"
     @objc optional func pullProgressValueChanged()
 }
 
-class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
+public class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
     
     private var scroller: UIScrollView?
     private var contentInset_top: CGFloat = 0
@@ -55,11 +55,11 @@ class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         self.prepareForRefresh()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func willMove(toSuperview newSuperview: UIView?) {
+    override public func willMove(toSuperview newSuperview: UIView?) {
         super.willMove(toSuperview: newSuperview)
         
         if let scroller = newSuperview as? UIScrollView {
@@ -69,7 +69,7 @@ class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
-    override func didMoveToSuperview() {
+    override public func didMoveToSuperview() {
         super.didMoveToSuperview()
         
         if let scroller = self.superview as? UIScrollView {
@@ -79,7 +79,7 @@ class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
-    override func removeFromSuperview() {
+    override public func removeFromSuperview() {
         
         if let scroller = self.superview as? UIScrollView {
             scroller.removeObserver(self, forKeyPath: keyPathForContentOffset)
@@ -88,22 +88,22 @@ class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
     }
     
     /// 子类根据自己的需求实现以下方法
-    func refreshStateChanged() {
+    public func refreshStateChanged() {
         
     }
     
-    func pullProgressValueChanged() {
+    public func pullProgressValueChanged() {
         
     }
     
     // 初始化
-    func prepareForRefresh() {
+    public func prepareForRefresh() {
         
         self.refreshState = .idle
         self.backgroundColor = UIColor.clear
     }
     
-    func beginRefreshing() {
+    public func beginRefreshing() {
         
         guard let scroller_ = self.scroller else {
             return
@@ -121,7 +121,7 @@ class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
-    func endRefreshing() {
+    public func endRefreshing() {
         
         if self.refreshState == .refreshing {
             if let scroller_ = self.scroller {
@@ -140,7 +140,7 @@ class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
     }
     
     // MARK: - Observe Lisener
-    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    override public func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         // contentOffset changed.
         if let keyPath_ = keyPath {

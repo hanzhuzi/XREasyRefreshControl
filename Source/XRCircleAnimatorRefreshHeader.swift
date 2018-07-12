@@ -11,7 +11,7 @@ import UIKit
 private let kRotationAnimationForGradientLayerKey: String = "kRotationAnimationForGradientLayerKey"
 private let kStrokeEndAnimationForCircleLayerKey: String = "kStrokeEndAnimationForCircleLayerKey"
 
-class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
+public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     
     lazy var circleLayer: CAShapeLayer = CAShapeLayer()
     lazy var gradientLayer: CAGradientLayer = CAGradientLayer()
@@ -36,11 +36,11 @@ class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         self.layer.addSublayer(gradientLayer)
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
-    override func refreshStateChanged() {
+    override public func refreshStateChanged() {
         
         switch refreshState {
         case .idle:
@@ -67,12 +67,12 @@ class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         }
     }
     
-    override func pullProgressValueChanged() {
+    override public func pullProgressValueChanged() {
         
         circleLayer.strokeEnd = CGFloat(progress)
     }
     
-    override var frame: CGRect {
+    override public var frame: CGRect {
         get {
             return super.frame
         }
@@ -83,7 +83,7 @@ class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         }
     }
     
-    override func layoutSubviews() {
+    override public func layoutSubviews() {
         super.layoutSubviews()
         
         self.layoutCircleLayer()

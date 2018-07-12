@@ -61,7 +61,7 @@ class ViewController: UIViewController {
                 
                 self.mainTableView.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(frame: CGRect.zero), heightForFooter: 55) {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-                        for index in 0 ..< 10 {
+                        for index in 0 ..< 5 {
                             self.dataArray.append("\(index)")
                         }
                         self.mainTableView.reloadData()

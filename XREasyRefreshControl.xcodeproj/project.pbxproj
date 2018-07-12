@@ -21,6 +21,7 @@
 		0125F44D20F612780027C078 /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */; };
 		0125F44E20F612780027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */; };
 		0125F44F20F612780027C078 /* UIView+XRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F44620F612780027C078 /* UIView+XRExtension.swift */; };
+		012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		0125F44420F612780027C078 /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
 		0125F44520F612780027C078 /* XRCircleAnimatorRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRCircleAnimatorRefreshHeader.swift; sourceTree = "<group>"; };
 		0125F44620F612780027C078 /* UIView+XRExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XRExtension.swift"; sourceTree = "<group>"; };
+		012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRCustomGifRefreshHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +77,7 @@
 			children = (
 				0125F41520F601760027C078 /* AppDelegate.swift */,
 				0125F41720F601760027C078 /* ViewController.swift */,
+				012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */,
 				0125F41920F601760027C078 /* Main.storyboard */,
 				0125F41C20F601770027C078 /* Assets.xcassets */,
 				0125F41E20F601770027C078 /* LaunchScreen.storyboard */,
@@ -178,6 +181,7 @@
 				0125F44A20F612780027C078 /* XRActivityRefreshHeader.swift in Sources */,
 				0125F44F20F612780027C078 /* UIView+XRExtension.swift in Sources */,
 				0125F41620F601760027C078 /* AppDelegate.swift in Sources */,
+				012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */,
 				0125F44E20F612780027C078 /* XRCircleAnimatorRefreshHeader.swift in Sources */,
 				0125F44720F612780027C078 /* UIScrollView+XRRefresh.swift in Sources */,
 				0125F44D20F612780027C078 /* XRActivityRefreshFooter.swift in Sources */,
