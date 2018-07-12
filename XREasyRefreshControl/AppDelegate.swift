@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                                        animateTimeForEndRefreshContentInSetTop: 0.6,
                                                        afterDelayTimeForEndInsetTopRefreshing: 0.5,
                                                        pullLoadingMoreMode: .ignorePullReleaseFast,
-                                                       animateCircleLayerGradientColors: [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xAAAAAA).cgColor, XRRefreshControlSettings.colorFromRGB(hexRGB: 0x000000).cgColor],
+                                                       animateCircleLayerGradientColors: [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xAAAAAA), XRRefreshControlSettings.colorFromRGB(hexRGB: 0x000000)],
                                                        animateCircleLayerGradientLocations: [0, 1],
                                                        refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),
                                                        refreshStatusLblTextFont: UIFont.systemFont(ofSize: 14))

@@ -41,7 +41,7 @@ public class XRRefreshControlSettings: NSObject {
     public var animateTimeForEndRefreshContentInSetTop: TimeInterval = 0.5
     public var afterDelayTimeForEndInsetTopRefreshing: TimeInterval = 0.5
     
-    public var animateCircleLayerGradientColors: [CGColor] = [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xCCCCCC).cgColor, XRRefreshControlSettings.colorFromRGB(hexRGB: 0x111111).cgColor]
+    public var animateCircleLayerGradientColors: [UIColor] = [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xCCCCCC), XRRefreshControlSettings.colorFromRGB(hexRGB: 0x111111)]
     public var animateCircleLayerGradientLocations: [NSNumber] = [0, 1.0]
     
     public var pullLoadingMoreMode: XRRefreshFooterPullLoadingMode = .ignorePullReleaseFast
@@ -70,7 +70,7 @@ public class XRRefreshControlSettings: NSObject {
                         animateTimeForEndRefreshContentInSetTop: TimeInterval,
                         afterDelayTimeForEndInsetTopRefreshing: TimeInterval,
                         pullLoadingMoreMode: XRRefreshFooterPullLoadingMode = .ignorePullReleaseFast,
-                        animateCircleLayerGradientColors: [CGColor]? = nil,
+                        animateCircleLayerGradientColors: [UIColor]? = nil,
                         animateCircleLayerGradientLocations: [NSNumber]? = nil,
                         refreshStatusLblTextColor: UIColor? = nil,
                         refreshStatusLblTextFont: UIFont? = nil) {

@@ -29,7 +29,13 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         circleLayer.strokeStart = 0
         circleLayer.strokeEnd = 0
         
-        gradientLayer.colors = XRRefreshControlSettings.sharedSetting.animateCircleLayerGradientColors
+        let gradientColors = XRRefreshControlSettings.sharedSetting.animateCircleLayerGradientColors
+        var gradientCGColors: [CGColor] = []
+        for gradientColor in gradientColors {
+            gradientCGColors.append(gradientColor.cgColor)
+        }
+        
+        gradientLayer.colors = gradientCGColors
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         gradientLayer.locations = XRRefreshControlSettings.sharedSetting.animateCircleLayerGradientLocations
