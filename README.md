@@ -1,2 +1,2 @@
 # XREasyRefreshControl
-A simple and easy to use refresh control, you can customize your personality refresh according to the requirements.
+A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
