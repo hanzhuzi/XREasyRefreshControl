@@ -7,7 +7,7 @@
 
 Pod::Spec.new do |s|
   s.name = 'XREasyRefreshControl'
-  s.version = '0.3'
+  s.version = '0.4'
   s.license = 'MIT'
   s.summary = 'A simple and easy to use refresh control, you can customize your personality refresh'
   s.homepage = 'https://github.com/hanzhuzi/XREasyRefreshControl'
@@ -19,5 +19,5 @@ Pod::Spec.new do |s|
   # s.tvos.deployment_target = '9.0'
   # s.watchos.deployment_target = '2.0'
 
-  s.source_files = 'Source/DispatchQueue+XRRefresh.swift'
+  s.source_files = 'Source/*.swift'
 end
