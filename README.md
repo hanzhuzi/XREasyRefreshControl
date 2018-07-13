@@ -1,7 +1,7 @@
 # XREasyRefreshControl
 
 A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
-These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
+These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
 
 ```swift
 
@@ -15,7 +15,7 @@ public func xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefres
 
 ### From CocoaPods
 
-Add ' pod  'XREasyRefreshControl' ' to your Podfile.
+Add `pod  'XREasyRefreshControl'` to your Podfile.
 
 ## Usage
 
