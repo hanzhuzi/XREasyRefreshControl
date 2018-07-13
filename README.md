@@ -1,7 +1,7 @@
 # XREasyRefreshControl
 
 A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
-These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any UIScrollView (or any of its subclass). Like UITableView, UICollectionView, or UIWebView. Adding categories and methods to UIScrollView makes it easy to add refreshes to all subclasses of UIScrollView, yes, that's it!
+These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
 
 ```swift
 
@@ -92,7 +92,7 @@ mainTableView.xr_endFooterRefreshingWithLoadingFailure()
 
 ### Customization
 
-You can inherit the base classes XRBaseRefreshHeader and XRBaseRefreshFooter, override refreshStateChanged, and, if necessary, override progressvaluechanged to customize the drop-down refresh and drop-down loading effects you want.
+You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`, override `refreshStateChanged`, and, if necessary, override `progressvaluechanged` to customize the drop-down refresh and drop-down loading effects you want.
 
 ### Under the hood
 
