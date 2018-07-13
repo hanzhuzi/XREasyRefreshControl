@@ -90,17 +90,17 @@ mainTableView.xr_endFooterRefreshingWithLoadingFailure()
 
 ```
 
-#### Customization
+### Customization
 
 You can inherit the base classes XRBaseRefreshHeader and XRBaseRefreshFooter, override refreshStateChanged, and, if necessary, override progressvaluechanged to customize the drop-down refresh and drop-down loading effects you want.
 
-## Under the hood
+### Under the hood
 
 XREasyRefreshControl extends `UIScrollView` by adding new public methods as well as a dynamic properties. 
 
-It uses key-value observing to track the scrollView's `contentOffset`.
+It uses key-value observing to track the scrollView's `contentOffset` and `contentSize`.
 
-#### LICENSE
+### LICENSE
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
