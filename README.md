@@ -15,7 +15,7 @@ public func xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefres
 
 ### From CocoaPods
 
-Add ' pod 'XREasyRefreshControl' ' to your Podfile.
+Add ' pod  'XREasyRefreshControl' ' to your Podfile.
 
 ## Usage
 
