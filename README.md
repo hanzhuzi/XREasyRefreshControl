@@ -1,7 +1,7 @@
 # XREasyRefreshControl
 
 A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
-These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any UIScrollView (or any of its subclass). Adding classes and methods to UIScrollView makes it easy to add refreshes to all subclasses of UIScrollView, yes, that's it!
+These UIScrollView categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any UIScrollView (or any of its subclass). Like UITableView, UICollectionView, or UIWebView. Adding categories and methods to UIScrollView makes it easy to add refreshes to all subclasses of UIScrollView, yes, that's it!
 
 ```swift
 
@@ -15,7 +15,7 @@ public func xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefres
 
 ### From CocoaPods
 
-Add 'pod 'XREasyRefreshControl'' to your Podfile.
+Add ' pod 'XREasyRefreshControl' ' to your Podfile.
 
 ## Usage
 
@@ -51,7 +51,7 @@ mainTableView.xr_endHeaderRefreshing()
 
 ```swift
 
-self.mainTableView.xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
+mainTableView.xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
 
 	// do loading more request
 }
@@ -90,9 +90,25 @@ mainTableView.xr_endFooterRefreshingWithLoadingFailure()
 
 ```
 
+#### Customization
 
+You can inherit the base classes XRBaseRefreshHeader and XRBaseRefreshFooter, override refreshStateChanged, and, if necessary, override progressvaluechanged to customize the drop-down refresh and drop-down loading effects you want.
 
+## Under the hood
 
+XREasyRefreshControl extends `UIScrollView` by adding new public methods as well as a dynamic properties. 
+
+It uses key-value observing to track the scrollView's `contentOffset`.
+
+#### LICENSE
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 
 
