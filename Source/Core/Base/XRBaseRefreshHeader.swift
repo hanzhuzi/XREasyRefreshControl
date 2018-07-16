@@ -59,8 +59,34 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
+    // 是否允许下拉距离超过下拉控件高度的一半就自动下拉至刷新状态<当刷新控件高度比较高时，请设置为`true`>
+    private var isTriggerRefreshMoreThanPullHalfing: Bool = false
+    // 触发下拉距离超过一半自动下拉至刷新状态的控件的最大高度值，默认200.
+    // 可在`XRRefreshControlSettings`中配置.
+    private var isTriggerRefreshPullHalfingHeaderMaxHeight: CGFloat {
+        get {
+            let maxHeight = XRRefreshControlSettings.sharedSetting.isTriggerRefreshPullHalfingHeaderMaxHeight
+            return maxHeight
+        }
+    }
+    
     var refreshingClosure: (() -> Swift.Void)?
     
+    open override var frame: CGRect {
+        get {
+            return super.frame
+        }
+        
+        set {
+            super.frame = newValue
+            if newValue.size.height >= isTriggerRefreshPullHalfingHeaderMaxHeight {
+                isTriggerRefreshMoreThanPullHalfing = true
+            }
+            else {
+                isTriggerRefreshMoreThanPullHalfing = false
+            }
+        }
+    }
     
     // MARK: - init
     public init() {
@@ -101,6 +127,17 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         super.removeFromSuperview()
     }
     
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if self.bounds.size.height >= isTriggerRefreshPullHalfingHeaderMaxHeight {
+            isTriggerRefreshMoreThanPullHalfing = true
+        }
+        else {
+            isTriggerRefreshMoreThanPullHalfing = false
+        }
+    }
+    
     // MARK: - Override Methods
     open func refreshStateChanged() {
         
@@ -127,9 +164,11 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         self.progress = 1.0
         
         let fullDisplayOffsetY = -contentInset_top - self.frame.size.height
+        let duration = XRRefreshControlSettings.sharedSetting.animateTimeForAdjustContentInSetTop
         
-        UIView.animate(withDuration: XRRefreshControlSettings.sharedSetting.animateTimeForAdjustContentInSetTop, animations: {
+        UIView.animate(withDuration: duration, animations: {
             scroller_.xr_contentInsetTop = -fullDisplayOffsetY
+            scroller_.xr_contentOffsetY = fullDisplayOffsetY
         }) { (_) in
             // you can't set contentinset-top here, it will shake.
         }
@@ -139,9 +178,11 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         
         if self.refreshState == .refreshing {
             if let scroller_ = self.scroller {
-                DispatchQueue.xr_dispatch_after_in_main(XRRefreshControlSettings.sharedSetting.afterDelayTimeForEndInsetTopRefreshing) {
+                let delayTime = XRRefreshControlSettings.sharedSetting.afterDelayTimeForEndInsetTopRefreshing
+                DispatchQueue.xr_dispatch_after_in_main(delayTime) {
                     self.refreshState = .finished
-                    UIView.animate(withDuration: XRRefreshControlSettings.sharedSetting.animateTimeForEndRefreshContentInSetTop,
+                    let duration = XRRefreshControlSettings.sharedSetting.animateTimeForEndRefreshContentInSetTop
+                    UIView.animate(withDuration: duration,
                                    animations: {
                         scroller_.xr_contentInsetTop = self.contentInset_top
                     }) { (_) in
@@ -195,8 +236,15 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
                                 }
                             }
                             else {
-                                if self.refreshState == .pullFulling {
-                                    self.beginRefreshing()
+                                if isTriggerRefreshMoreThanPullHalfing {
+                                    if self.refreshState == .pullHalfing || self.refreshState == .pullFulling {
+                                        self.beginRefreshing()
+                                    }
+                                }
+                                else {
+                                    if self.refreshState == .pullFulling {
+                                        self.beginRefreshing()
+                                    }
                                 }
                             }
                         }

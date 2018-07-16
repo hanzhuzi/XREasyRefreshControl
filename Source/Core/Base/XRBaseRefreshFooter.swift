@@ -138,14 +138,14 @@ open class XRBaseRefreshFooter: UIView {
     
     func endRefreshingWithNoMoreData() {
         
-        if self.refreshState == .refreshing {
+        if self.refreshState == .refreshing || self.refreshState == .idle {
             self.refreshState = .noMoreData
         }
     }
     
     func endRefreshingWithLoadingFailure() {
         
-        if self.refreshState == .refreshing {
+        if self.refreshState == .refreshing || self.refreshState == .idle {
             self.refreshState = .loadingFailure
         }
     }

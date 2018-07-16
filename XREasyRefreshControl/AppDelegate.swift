@@ -18,8 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // 全局配置下拉刷新与上拉加载
-        XRRefreshControlSettings.sharedSetting.configSettings(animateTimeForAdjustContentInSetTop: 0.6,
-                                                       animateTimeForEndRefreshContentInSetTop: 0.6,
+        XRRefreshControlSettings.sharedSetting.configSettings(animateTimeForAdjustContentInSetTop: 0.5,
+                                                       animateTimeForEndRefreshContentInSetTop: 0.5,
                                                        afterDelayTimeForEndInsetTopRefreshing: 0.5,
                                                        pullLoadingMoreMode: .ignorePullReleaseFast,
                                                        animateCircleLayerGradientColors: [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xAAAAAA), XRRefreshControlSettings.colorFromRGB(hexRGB: 0x000000)],

@@ -24,7 +24,7 @@ class ViewController: UIViewController {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         }
         
-        for index in 0 ..< 5 {
+        for index in 0 ..< 10 {
             dataArray.append("\(index)")
         }
         
@@ -49,11 +49,11 @@ class ViewController: UIViewController {
         footerVw.backgroundColor = UIColor.purple.withAlphaComponent(0.5)
         mainTableView.tableFooterView = footerVw
         
-        mainTableView.xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70) {
+        mainTableView.xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRCustomGifRefreshHeader(), heightForHeader: UIScreen.main.bounds.size.width / 500.0 * 341.0) {
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
                 self.dataArray.removeAll()
-                for index in 0 ..< 5 {
+                for index in 0 ..< 10 {
                     self.dataArray.append("\(index)")
                 }
                 self.mainTableView.reloadData()
@@ -79,6 +79,7 @@ class ViewController: UIViewController {
         super.viewDidAppear(animated)
         
         mainTableView.xr_beginHeaderRefreshing()
+        
     }
     
     override func didReceiveMemoryWarning() {

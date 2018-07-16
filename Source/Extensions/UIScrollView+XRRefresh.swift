@@ -183,5 +183,17 @@ extension UIScrollView {
         }
     }
     
+    var xr_contentOffsetY: CGFloat {
+        get {
+            return self.contentOffset.y
+        }
+        
+        set {
+            var contentOffSet_ = self.contentOffset
+            contentOffSet_.y = newValue
+            self.contentOffset = contentOffSet_
+        }
+    }
+    
 }
 

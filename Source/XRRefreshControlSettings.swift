@@ -64,6 +64,8 @@ public class XRRefreshControlSettings: NSObject {
     public var refreshStatusLblTextColor: UIColor = XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333)
     public var refreshStatusLblTextFont: UIFont = UIFont.systemFont(ofSize: 14)
     
+    public var isTriggerRefreshPullHalfingHeaderMaxHeight: CGFloat = 200
+    
     public static let sharedSetting: XRRefreshControlSettings = XRRefreshControlSettings()
     
     private override init() {
@@ -89,12 +91,15 @@ public class XRRefreshControlSettings: NSObject {
                         animateCircleLayerGradientColors: [UIColor]? = nil,
                         animateCircleLayerGradientLocations: [NSNumber]? = nil,
                         refreshStatusLblTextColor: UIColor? = nil,
-                        refreshStatusLblTextFont: UIFont? = nil) {
+                        refreshStatusLblTextFont: UIFont? = nil,
+                        isTriggerRefreshPullHalfingHeaderMaxHeight: CGFloat = 200) {
         
         self.animateTimeForEndRefreshContentInSetTop = animateTimeForEndRefreshContentInSetTop
         self.animateTimeForEndRefreshContentInSetTop = animateTimeForEndRefreshContentInSetTop
         self.afterDelayTimeForEndInsetTopRefreshing = afterDelayTimeForEndInsetTopRefreshing
         self.pullLoadingMoreMode = pullLoadingMoreMode
+        self.isTriggerRefreshPullHalfingHeaderMaxHeight = isTriggerRefreshPullHalfingHeaderMaxHeight
+        
         if let gradientColors = animateCircleLayerGradientColors {
             self.animateCircleLayerGradientColors = gradientColors
         }
