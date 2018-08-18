@@ -5,9 +5,9 @@ These `UIScrollView` categories makes it super easy to add pull-to-refresh and i
 
 ```swift
 
-public func xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
+public func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
 
-public func xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
+public func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
 
 ```
 
@@ -23,7 +23,7 @@ Add `pod  'XREasyRefreshControl'` to your Podfile.
 
 ```swift
 
-mainTableView.xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70) {
+mainTableView.xr.addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70) {
        
 	// do refresh request           
 }
@@ -34,7 +34,7 @@ mainTableView.xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimat
 
 ```swift
 
-mainTableView.xr_beginHeaderRefreshing()
+mainTableView.xr.beginHeaderRefreshing()
 
 ```
 
@@ -42,7 +42,7 @@ mainTableView.xr_beginHeaderRefreshing()
 
 ```swift
 
-mainTableView.xr_endHeaderRefreshing()
+mainTableView.xr.endHeaderRefreshing()
 
 ```
 
@@ -51,7 +51,7 @@ mainTableView.xr_endHeaderRefreshing()
 
 ```swift
 
-mainTableView.xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
+mainTableView.xr.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
 
 	// do loading more request
 }
@@ -62,7 +62,7 @@ mainTableView.xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivity
 
 ```swift
 
-mainTableView.xr_endFooterRefreshing()
+mainTableView.xr.endFooterRefreshing()
 
 ```
 
@@ -70,7 +70,7 @@ mainTableView.xr_endFooterRefreshing()
 
 ```swift
 
-mainTableView.xr_endFooterRefreshingWithNoMoreData()
+mainTableView.xr.endFooterRefreshingWithNoMoreData()
 
 ```
 
@@ -78,7 +78,7 @@ mainTableView.xr_endFooterRefreshingWithNoMoreData()
 
 ```swift
 
-mainTableView.xr_endFooterRefreshingWithRemoveLoadingMoreView()
+mainTableView.xr.endFooterRefreshingWithRemoveLoadingMoreView()
 
 ```
 
@@ -86,7 +86,7 @@ mainTableView.xr_endFooterRefreshingWithRemoveLoadingMoreView()
 
 ```swift
 
-mainTableView.xr_endFooterRefreshingWithLoadingFailure()
+mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 
 ```
 
