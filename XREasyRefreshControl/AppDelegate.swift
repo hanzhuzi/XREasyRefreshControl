@@ -18,18 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // 全局配置下拉刷新与上拉加载
-        XRRefreshControlSettings.sharedSetting.configSettings(animateTimeForAdjustContentInSetTop: 0.5,
-                                                       animateTimeForEndRefreshContentInSetTop: 0.5,
-                                                       afterDelayTimeForEndInsetTopRefreshing: 0.5,
-                                                       pullLoadingMoreMode: .ignorePullReleaseFast,
-                                                       animateCircleLayerGradientColors: [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xAAAAAA), XRRefreshControlSettings.colorFromRGB(hexRGB: 0x000000)],
-                                                       animateCircleLayerGradientLocations: [0, 1],
-                                                       refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),
-                                                       refreshStatusLblTextFont: UIFont.systemFont(ofSize: 14))
+        XRRefreshControlSettings.sharedSetting.configSettings(
+            animateTimeForAdjustContentInSetTop: 0.5,
+            animateTimeForEndRefreshContentInSetTop: 0.3,
+            afterDelayTimeForEndInsetTopRefreshing: 0.5,
+            pullLoadingMoreMode: .ignorePullReleaseFast,
+            animateCircleLayerGradientColors: [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xAAAAAA), XRRefreshControlSettings.colorFromRGB(hexRGB: 0x000000)],
+            animateCircleLayerGradientLocations: [0, 1],
+            refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),
+            refreshStatusLblTextFont: UIFont.systemFont(ofSize: 14))
         
         return true
     }
-
+    
     func applicationWillResignActive(_ application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
         // Use this method to pause ongoing tasks, disable timers, and invalidate graphics rendering callbacks. Games should use this method to pause the game.

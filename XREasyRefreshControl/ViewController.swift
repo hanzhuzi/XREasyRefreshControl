@@ -49,7 +49,7 @@ class ViewController: UIViewController {
         footerVw.backgroundColor = UIColor.purple.withAlphaComponent(0.5)
         mainTableView.tableFooterView = footerVw
         
-        mainTableView.xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRCustomGifRefreshHeader(), heightForHeader: UIScreen.main.bounds.size.width / 500.0 * 341.0) {
+        mainTableView.xr.addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 65) {
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
                 self.dataArray.removeAll()
@@ -57,15 +57,15 @@ class ViewController: UIViewController {
                     self.dataArray.append("\(index)")
                 }
                 self.mainTableView.reloadData()
-                self.mainTableView.xr_endHeaderRefreshing()
+                self.mainTableView.xr.endHeaderRefreshing()
                 
-                self.mainTableView.xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
+                self.mainTableView.xr.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
                     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
                         for index in 0 ..< 5 {
                             self.dataArray.append("\(index)")
                         }
                         self.mainTableView.reloadData()
-                        self.mainTableView.xr_endFooterRefreshing()
+                        self.mainTableView.xr.endFooterRefreshing()
                     })
                 }
             })
@@ -78,7 +78,7 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        mainTableView.xr_beginHeaderRefreshing()
+        mainTableView.xr.beginHeaderRefreshing()
         
     }
     

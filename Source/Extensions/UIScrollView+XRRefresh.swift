@@ -28,10 +28,10 @@ import UIKit
 private var kRefreshHeaderViewAssociatedKey: String = "kRefreshHeaderViewAssociatedKey"
 private var kRefreshFooterViewAssociatedKey: String = "kRefreshFooterViewAssociatedKey"
 
-// Extension for XRRefresh
+/// Extension for XRRefresh
 extension UIScrollView {
     
-    private var refreshHeaderView: XRBaseRefreshHeader? {
+    var refreshHeaderView: XRBaseRefreshHeader? {
         get {
             return objc_getAssociatedObject(self, &kRefreshHeaderViewAssociatedKey) as? XRBaseRefreshHeader
         }
@@ -41,7 +41,7 @@ extension UIScrollView {
         }
     }
     
-    private var refreshFooterView: XRBaseRefreshFooter? {
+    var refreshFooterView: XRBaseRefreshFooter? {
         get {
             return objc_getAssociatedObject(self, &kRefreshFooterViewAssociatedKey) as? XRBaseRefreshFooter
         }
@@ -51,79 +51,85 @@ extension UIScrollView {
         }
     }
     
+}
+
+/// Provider for UIScrollView.
+public extension XR where Base: UIScrollView {
+    
     /// MARK: - Pull to refreshing
-    public func xr_addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    public func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
-        self.refreshHeaderView?.removeFromSuperview()
+        self.base.refreshHeaderView?.removeFromSuperview()
         
-        self.superview?.setNeedsLayout()
-        self.superview?.layoutIfNeeded()
+        self.base.superview?.setNeedsLayout()
+        self.base.superview?.layoutIfNeeded()
         
-        var scrollViewWidth: CGFloat = self.bounds.size.width
+        var scrollViewWidth: CGFloat = self.base.bounds.size.width
         if scrollViewWidth <= 0 {
             scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
         refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader)
-        self.refreshHeaderView = refreshHeader
-        self.refreshHeaderView?.refreshingClosure = refreshClosure
-        self.addSubview(refreshHeaderView!)
+        self.base.refreshHeaderView = refreshHeader
+        self.base.refreshHeaderView?.refreshingClosure = refreshClosure
+        self.base.addSubview(self.base.refreshHeaderView!)
     }
     
-    // 手动下拉刷新
-    public func xr_beginHeaderRefreshing() {
+    // auto refresh for header.
+    public func beginHeaderRefreshing() {
         
-        self.refreshHeaderView?.beginRefreshing()
+        self.base.refreshHeaderView?.beginRefreshing()
     }
     
-    // 结束下拉刷新
-    public func xr_endHeaderRefreshing() {
+    // end refresh for header.
+    public func endHeaderRefreshing() {
         
-        self.refreshHeaderView?.endRefreshing()
+        self.base.refreshHeaderView?.endRefreshing()
     }
     
-    // MARK: - Pull to loading more
-    public func xr_addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    /// MARK: - Pull to loading more
+    public func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         // remove last refreshFooter
-        self.refreshFooterView?.removeFromSuperview()
+        self.base.refreshFooterView?.removeFromSuperview()
         
-        self.superview?.setNeedsLayout()
-        self.superview?.layoutIfNeeded()
+        self.base.superview?.setNeedsLayout()
+        self.base.superview?.layoutIfNeeded()
         
-        var scrollViewWidth: CGFloat = self.bounds.size.width
+        var scrollViewWidth: CGFloat = self.base.bounds.size.width
         if scrollViewWidth <= 0 {
             scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
         refreshFooter.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForFooter)
-        self.refreshFooterView = refreshFooter
-        self.refreshFooterView?.refreshingClosure = refreshClosure
-        self.addSubview(refreshFooterView!)
+        self.base.refreshFooterView = refreshFooter
+        self.base.refreshFooterView?.refreshingClosure = refreshClosure
+        self.base.addSubview(self.base.refreshFooterView!)
     }
     
-    // 结束底部刷新方法，请务必在数据加载完成后TableView or CollectionView reloadData之后结束刷新
-    public func xr_endFooterRefreshing() {
+    // To end the bottom refresh method, be sure to finish the refresh after
+    // the TableView or CollectionView reloadData is loaded
+    public func endFooterRefreshing() {
         
-        self.refreshFooterView?.endRefreshing()
+        self.base.refreshFooterView?.endRefreshing()
     }
     
-    // 结束刷新，底部显示没有更多数据了
-    public func xr_endFooterRefreshingWithNoMoreData() {
+    // End refresh, bottom display no more data
+    public func endFooterRefreshingWithNoMoreData() {
         
-        self.refreshFooterView?.endRefreshingWithNoMoreData()
+        self.base.refreshFooterView?.endRefreshingWithNoMoreData()
     }
     
-    // 结束刷新，数据加载失败了，点击重新加载更多
-    public func xr_endFooterRefreshingWithLoadingFailure() {
+    // End refresh, data load failed, click reload more
+    public func endFooterRefreshingWithLoadingFailure() {
         
-        self.refreshFooterView?.endRefreshingWithLoadingFailure()
+        self.base.refreshFooterView?.endRefreshingWithLoadingFailure()
     }
     
-    // 结束刷新，数据全部加载完毕了，移除footerRefresh
-    public func xr_endFooterRefreshingWithRemoveLoadingMoreView() {
+    // The refresh ends, the data is all loaded, and the footerRefresh is removed
+    public func endFooterRefreshingWithRemoveLoadingMoreView() {
         
-        self.refreshFooterView?.removeLoadMoreRefreshing()
+        self.base.refreshFooterView?.removeLoadMoreRefreshing()
     }
     
 }

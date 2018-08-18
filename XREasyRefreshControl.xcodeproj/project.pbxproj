@@ -25,6 +25,7 @@
 		0155059C20FC8A190082599C /* UIScrollView+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155059420FC8A190082599C /* UIScrollView+XRRefresh.swift */; };
 		015505A320FC8AAD0082599C /* gifu-figure.gif in Resources */ = {isa = PBXBuildFile; fileRef = 015505A120FC8AAD0082599C /* gifu-figure.gif */; };
 		015505A420FC8AAD0082599C /* mugen.gif in Resources */ = {isa = PBXBuildFile; fileRef = 015505A220FC8AAD0082599C /* mugen.gif */; };
+		01BE05572128389C00E5BE14 /* XRProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE05562128389C00E5BE14 /* XRProvider.swift */; };
 		4EA71D44E75A4D0765DE07F9 /* Pods_XREasyRefreshControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7129A811767E2C64CDD5D38D /* Pods_XREasyRefreshControl.framework */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		0155059420FC8A190082599C /* UIScrollView+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRRefresh.swift"; sourceTree = "<group>"; };
 		015505A120FC8AAD0082599C /* gifu-figure.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "gifu-figure.gif"; sourceTree = "<group>"; };
 		015505A220FC8AAD0082599C /* mugen.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = mugen.gif; sourceTree = "<group>"; };
+		01BE05562128389C00E5BE14 /* XRProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRProvider.swift; sourceTree = "<group>"; };
 		112C94F3005DC2BC6B4DF60F /* Pods-XREasyRefreshControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XREasyRefreshControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XREasyRefreshControl/Pods-XREasyRefreshControl.debug.xcconfig"; sourceTree = "<group>"; };
 		7129A811767E2C64CDD5D38D /* Pods_XREasyRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XREasyRefreshControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A48D8678851DA129E8BB2AA4 /* Pods-XREasyRefreshControl.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XREasyRefreshControl.release.xcconfig"; path = "Pods/Target Support Files/Pods-XREasyRefreshControl/Pods-XREasyRefreshControl.release.xcconfig"; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 			children = (
 				0155059020FC8A190082599C /* XRBaseRefreshFooter.swift */,
 				0155058F20FC8A190082599C /* XRBaseRefreshHeader.swift */,
+				01BE05562128389C00E5BE14 /* XRProvider.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -296,6 +299,7 @@
 				0125F41620F601760027C078 /* AppDelegate.swift in Sources */,
 				0155059B20FC8A190082599C /* DispatchQueue+XRRefresh.swift in Sources */,
 				012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */,
+				01BE05572128389C00E5BE14 /* XRProvider.swift in Sources */,
 				0155059A20FC8A190082599C /* XRActivityRefreshHeader.swift in Sources */,
 				0155059820FC8A190082599C /* XRBaseRefreshFooter.swift in Sources */,
 				0155059620FC8A190082599C /* XRCircleAnimatorRefreshHeader.swift in Sources */,
