@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  XREasyRefreshControl
+
+  Created by 徐冉 on 2018/10/16.
+  Copyright © 2018年 是心作佛. All rights reserved.
+*/
+// 繁体中文
+
+// 下拉刷新
+XR_Refresh_header_idle = "下拉以刷新";
+XR_Refresh_header_pulling = "下拉即可刷新";
+XR_Refresh_header_pullFulling = "松手即可刷新";
+XR_Refresh_header_refreshing = "刷新中";
+XR_Refresh_header_finished = "刷新完成";
+
+// 上拉加载更多
+XR_Refresh_footer_idle = "上拉加载更多";
+XR_Refresh_footer_refreshing = "加载中...";
+XR_Refresh_footer_finished = "加载完成";
+XR_Refresh_footer_noMoreData = "没有更多数据了";
+XR_Refresh_footer_loadingFailure = "加载失败了，点击重新加载";

@@ -1,6 +1,6 @@
 //
-//  XRActivityRefreshHeader.swift
-//  
+//  CustomActivityRefreshHeader.swift
+//
 //  Copyright (c) 2018 - 2020 Ran Xu
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -23,8 +23,8 @@
 
 import UIKit
 
-public class XRActivityRefreshHeader: XRBaseRefreshHeader {
-
+class CustomActivityRefreshHeader: XRBaseRefreshHeader {
+    
     lazy var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
     lazy var statusLbl: UILabel = UILabel(frame: CGRect.zero)
     
@@ -67,27 +67,27 @@ public class XRActivityRefreshHeader: XRBaseRefreshHeader {
         switch refreshState {
         case .idle:
             activityIndicator.stopAnimating()
-            statusLbl.text = "下拉以刷新"
+            statusLbl.text = XRLocalizableStringManager.localizableStringFromKey(key: XR_Refresh_header_idle)
             break
         case .pulling:
             activityIndicator.stopAnimating()
-            statusLbl.text = "下拉即可刷新"
+            statusLbl.text = XRLocalizableStringManager.localizableStringFromKey(key: XR_Refresh_header_pulling)
             break
         case .pullHalfing:
             activityIndicator.stopAnimating()
-            statusLbl.text = "继续下拉即可刷新"
+            statusLbl.text = XRLocalizableStringManager.localizableStringFromKey(key: XR_Refresh_header_pulling)
             break
         case .pullFulling:
-            activityIndicator.startAnimating()
-            statusLbl.text = "松手即可刷新"
+            activityIndicator.stopAnimating()
+            statusLbl.text = XRLocalizableStringManager.localizableStringFromKey(key: XR_Refresh_header_pullFulling)
             break
         case .refreshing:
             activityIndicator.startAnimating()
-            statusLbl.text = "刷新中"
+            statusLbl.text = XRLocalizableStringManager.localizableStringFromKey(key: XR_Refresh_header_refreshing)
             break
         case .finished:
             activityIndicator.stopAnimating()
-            statusLbl.text = "刷新完成"
+            statusLbl.text = XRLocalizableStringManager.localizableStringFromKey(key: XR_Refresh_header_finished)
             break
         default:
             break

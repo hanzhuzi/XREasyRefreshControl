@@ -124,33 +124,33 @@ open class XRBaseRefreshFooter: UIView {
         
     }
     
-    func beginRefreshing() {
+    public func beginRefreshing() {
         
         self.refreshState = .refreshing
     }
     
-    func endRefreshing() {
+    public func endRefreshing() {
         
         if self.refreshState == .refreshing {
             self.refreshState = .idle
         }
     }
     
-    func endRefreshingWithNoMoreData() {
+    public func endRefreshingWithNoMoreData() {
         
         if self.refreshState == .refreshing || self.refreshState == .idle {
             self.refreshState = .noMoreData
         }
     }
     
-    func endRefreshingWithLoadingFailure() {
+    public func endRefreshingWithLoadingFailure() {
         
         if self.refreshState == .refreshing || self.refreshState == .idle {
             self.refreshState = .loadingFailure
         }
     }
     
-    func removeLoadMoreRefreshing() {
+    public func removeLoadMoreRefreshing() {
         
         self.refreshState = .idle
         self.removeFromSuperview()

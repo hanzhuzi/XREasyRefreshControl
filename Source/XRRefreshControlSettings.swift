@@ -57,12 +57,9 @@ public class XRRefreshControlSettings: NSObject {
     public var animateTimeForEndRefreshContentInSetTop: TimeInterval = 0.5
     public var afterDelayTimeForEndInsetTopRefreshing: TimeInterval = 0.5
     
-    public var animateCircleLayerGradientColors: [UIColor] = [XRRefreshControlSettings.colorFromRGB(hexRGB: 0xCCCCCC), XRRefreshControlSettings.colorFromRGB(hexRGB: 0x111111)]
-    public var animateCircleLayerGradientLocations: [NSNumber] = [0, 1.0]
-    
     public var pullLoadingMoreMode: XRRefreshFooterPullLoadingMode = .ignorePullReleaseFast
     public var refreshStatusLblTextColor: UIColor = XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333)
-    public var refreshStatusLblTextFont: UIFont = UIFont.systemFont(ofSize: 14)
+    public var refreshStatusLblTextFont: UIFont = UIFont.systemFont(ofSize: 13)
     
     public var isTriggerRefreshPullHalfingHeaderMaxHeight: CGFloat = 200
     
@@ -79,8 +76,6 @@ public class XRRefreshControlSettings: NSObject {
      * @param animateTimeForEndRefreshContentInSetTop 结束刷新的动画时间
      * @param afterDelayTimeForEndInsetTopRefreshing  刷新完成后延时结束时间
      * @param pullLoadingMoreMode                     上拉加载触发模式
-     * @param animateCircleLayerGradientColors        下拉刷新控件渐变颜色值数组
-     * @param animateCircleLayerGradientLocations     下拉刷新控件渐变位置数组
      * @param refreshStatusLblTextColor               刷新控件文字颜色
      * @param refreshStatusLblTextFont                刷新控件文字字体
      */
@@ -88,8 +83,6 @@ public class XRRefreshControlSettings: NSObject {
                         animateTimeForEndRefreshContentInSetTop: TimeInterval,
                         afterDelayTimeForEndInsetTopRefreshing: TimeInterval,
                         pullLoadingMoreMode: XRRefreshFooterPullLoadingMode = .ignorePullReleaseFast,
-                        animateCircleLayerGradientColors: [UIColor]? = nil,
-                        animateCircleLayerGradientLocations: [NSNumber]? = nil,
                         refreshStatusLblTextColor: UIColor? = nil,
                         refreshStatusLblTextFont: UIFont? = nil,
                         isTriggerRefreshPullHalfingHeaderMaxHeight: CGFloat = 200) {
@@ -99,14 +92,6 @@ public class XRRefreshControlSettings: NSObject {
         self.afterDelayTimeForEndInsetTopRefreshing = afterDelayTimeForEndInsetTopRefreshing
         self.pullLoadingMoreMode = pullLoadingMoreMode
         self.isTriggerRefreshPullHalfingHeaderMaxHeight = isTriggerRefreshPullHalfingHeaderMaxHeight
-        
-        if let gradientColors = animateCircleLayerGradientColors {
-            self.animateCircleLayerGradientColors = gradientColors
-        }
-        
-        if let gradientLocations = animateCircleLayerGradientLocations {
-            self.animateCircleLayerGradientLocations = gradientLocations
-        }
         
         if let statusLblTextColor = refreshStatusLblTextColor {
             self.refreshStatusLblTextColor = statusLblTextColor

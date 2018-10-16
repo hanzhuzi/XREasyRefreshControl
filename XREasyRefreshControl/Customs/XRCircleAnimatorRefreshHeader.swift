@@ -31,7 +31,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     lazy var circleLayer: CAShapeLayer = CAShapeLayer()
     lazy var gradientLayer: CAGradientLayer = CAGradientLayer()
     
-    override public init() {
+    override init() {
         super.init()
         
         circleLayer.backgroundColor = UIColor.clear.cgColor
@@ -44,7 +44,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         circleLayer.strokeStart = 0
         circleLayer.strokeEnd = 0
         
-        let gradientColors = XRRefreshControlSettings.sharedSetting.animateCircleLayerGradientColors
+        let gradientColors = [UIColor.blue, UIColor.green]
         var gradientCGColors: [CGColor] = []
         for gradientColor in gradientColors {
             gradientCGColors.append(gradientColor.cgColor)
@@ -53,7 +53,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         gradientLayer.colors = gradientCGColors
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        gradientLayer.locations = XRRefreshControlSettings.sharedSetting.animateCircleLayerGradientLocations
+        gradientLayer.locations = [0, 1]
         self.layer.addSublayer(gradientLayer)
     }
     

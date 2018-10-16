@@ -57,7 +57,7 @@ extension UIScrollView {
 public extension XR where Base: UIScrollView {
     
     /// MARK: - Pull to refreshing
-    public func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         self.base.refreshHeaderView?.removeFromSuperview()
         
@@ -88,7 +88,9 @@ public extension XR where Base: UIScrollView {
     }
     
     /// MARK: - Pull to loading more
-    public func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    public func addPullToRefreshFooter(refreshFooter: XRBaseRefreshFooter,
+                                     heightForFooter: CGFloat = 55,
+                                     refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         // remove last refreshFooter
         self.base.refreshFooterView?.removeFromSuperview()

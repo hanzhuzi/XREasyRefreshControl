@@ -1,0 +1,22 @@
+/* 
+  Localizable.strings
+  XREasyRefreshControl
+
+  Created by 徐冉 on 2018/10/16.
+  Copyright © 2018年 是心作佛. All rights reserved.
+*/
+// 英文
+
+// 下拉刷新
+XR_Refresh_header_idle = "Pull down to refresh";
+XR_Refresh_header_pulling = "Pull down to refresh";
+XR_Refresh_header_pullFulling = "Let go and refresh";
+XR_Refresh_header_refreshing = "Refreshing";
+XR_Refresh_header_finished = "Refresh completed";
+
+// 上拉加载更多
+XR_Refresh_footer_idle = "Pull up and load more";
+XR_Refresh_footer_refreshing = "Loading...";
+XR_Refresh_footer_finished = "Loading completed";
+XR_Refresh_footer_noMoreData = "No more data";
+XR_Refresh_footer_loadingFailure = "Loading failed, click reload";

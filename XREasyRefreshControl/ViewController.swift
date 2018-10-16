@@ -1,10 +1,25 @@
 //
 //  ViewController.swift
-//  XREasyRefreshControl
 //
-//  Created by 徐冉 on 2018/7/11.
-//  Copyright © 2018年 是心作佛. All rights reserved.
+//  Copyright (c) 2018 - 2020 Ran Xu
 //
+//  Permission is hereby granted, free of charge, to any person obtaining a copy
+//  of this software and associated documentation files (the "Software"), to deal
+//  in the Software without restriction, including without limitation the rights
+//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+//  copies of the Software, and to permit persons to whom the Software is
+//  furnished to do so, subject to the following conditions:
+//
+//  The above copyright notice and this permission notice shall be included in all
+//  copies or substantial portions of the Software.
+//
+//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+//  SOFTWARE.
 
 import UIKit
 
@@ -37,6 +52,10 @@ class ViewController: UIViewController {
         mainTableView.showsVerticalScrollIndicator = false
         mainTableView.showsHorizontalScrollIndicator = false
         
+        mainTableView.estimatedRowHeight = 0
+        mainTableView.estimatedSectionFooterHeight = 0
+        mainTableView.estimatedSectionHeaderHeight = 0
+        
         mainTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
         mainTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCellNull")
@@ -49,26 +68,30 @@ class ViewController: UIViewController {
         footerVw.backgroundColor = UIColor.purple.withAlphaComponent(0.5)
         mainTableView.tableFooterView = footerVw
         
-        mainTableView.xr.addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 65) {
+        // MARK: - 添加下拉刷新，上拉加载
+        mainTableView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader(), heightForHeader: 65) { [weak self] in
             
-            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-                self.dataArray.removeAll()
-                for index in 0 ..< 10 {
-                    self.dataArray.append("\(index)")
-                }
-                self.mainTableView.reloadData()
-                self.mainTableView.xr.endHeaderRefreshing()
-                
-                self.mainTableView.xr.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
-                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-                        for index in 0 ..< 5 {
-                            self.dataArray.append("\(index)")
-                        }
-                        self.mainTableView.reloadData()
-                        self.mainTableView.xr.endFooterRefreshing()
-                    })
-                }
-            })
+            if let weakSelf = self {
+                // 请求模拟
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                    weakSelf.dataArray.removeAll()
+                    for index in 0 ..< 10 {
+                        weakSelf.dataArray.append("\(index)")
+                    }
+                    
+                    weakSelf.mainTableView.reloadData()
+                    weakSelf.mainTableView.xr.endHeaderRefreshing()
+                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), heightForFooter: 55) {
+                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
+                            for index in 0 ..< 5 {
+                                weakSelf.dataArray.append("\(index)")
+                            }
+                            weakSelf.mainTableView.reloadData()
+                            weakSelf.mainTableView.xr.endFooterRefreshing()
+                        })
+                    }
+                })
+            }
         }
         
         
