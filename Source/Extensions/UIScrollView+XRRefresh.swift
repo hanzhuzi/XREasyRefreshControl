@@ -24,6 +24,7 @@
 
 import Foundation
 import UIKit
+import WebKit
 
 private var kRefreshHeaderViewAssociatedKey: String = "kRefreshHeaderViewAssociatedKey"
 private var kRefreshFooterViewAssociatedKey: String = "kRefreshFooterViewAssociatedKey"
@@ -53,7 +54,7 @@ extension UIScrollView {
     
 }
 
-/// Provider for UIScrollView.
+// MARK: - Provider for UIScrollView.
 public extension XR where Base: UIScrollView {
     
     /// MARK: - Pull to refreshing
@@ -136,72 +137,76 @@ public extension XR where Base: UIScrollView {
     
 }
 
-// Extension for contentInset
-extension UIScrollView {
+// MARK: - Provider for WKWebView
+public extension XR where Base: WKWebView {
     
-    var xr_contentInset: UIEdgeInsets {
-        get {
-            return self.contentInset
+    /// MARK: - Pull to refreshing
+    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+        
+        self.base.scrollView.refreshHeaderView?.removeFromSuperview()
+        
+        self.base.scrollView.superview?.setNeedsLayout()
+        self.base.scrollView.superview?.layoutIfNeeded()
+        
+        var scrollViewWidth: CGFloat = self.base.scrollView.bounds.size.width
+        if scrollViewWidth <= 0 {
+            scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
-        set {
-            self.contentInset = newValue
-        }
+        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader)
+        self.base.scrollView.refreshHeaderView = refreshHeader
+        self.base.scrollView.refreshHeaderView?.refreshingClosure = refreshClosure
+        self.base.scrollView.addSubview(self.base.scrollView.refreshHeaderView!)
     }
     
-    var xr_contentInsetBottom: CGFloat {
-        get {
-            return self.contentInset.bottom
-        }
+    // auto refresh for header.
+    public func beginHeaderRefreshing() {
         
-        set {
-            var inset: UIEdgeInsets = self.contentInset
-            inset.bottom = newValue
-            if #available(iOS 11.0, *) {
-                inset.bottom = inset.bottom - (self.adjustedContentInset.bottom - self.contentInset.bottom)
-            }
-            self.contentInset = inset
-        }
+        self.base.scrollView.refreshHeaderView?.beginRefreshing()
     }
     
-    var xr_contentInsetTop: CGFloat {
-        get {
-            return self.contentInset.top
-        }
+    // end refresh for header.
+    public func endHeaderRefreshing() {
         
-        set {
-            var inset: UIEdgeInsets = self.contentInset
-            inset.top = newValue
-            if #available(iOS 11.0, *) {
-                inset.top = inset.top - (self.adjustedContentInset.top - self.contentInset.top)
-            }
-            self.contentInset = inset
-        }
-    }
-    
-    var xr_contentHeight: CGFloat {
-        get {
-            return self.contentSize.height
-        }
-        
-        set {
-            var contentSize = self.contentSize
-            contentSize.height = newValue
-            self.contentSize = contentSize
-        }
-    }
-    
-    var xr_contentOffsetY: CGFloat {
-        get {
-            return self.contentOffset.y
-        }
-        
-        set {
-            var contentOffSet_ = self.contentOffset
-            contentOffSet_.y = newValue
-            self.contentOffset = contentOffSet_
-        }
+        self.base.scrollView.refreshHeaderView?.endRefreshing()
     }
     
 }
+
+// MARK: - Provider for WKWebView
+extension XR where Base: UIWebView {
+    
+    /// MARK: - Pull to refreshing
+    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+        
+        self.base.scrollView.refreshHeaderView?.removeFromSuperview()
+        
+        self.base.scrollView.superview?.setNeedsLayout()
+        self.base.scrollView.superview?.layoutIfNeeded()
+        
+        var scrollViewWidth: CGFloat = self.base.scrollView.bounds.size.width
+        if scrollViewWidth <= 0 {
+            scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
+        }
+        
+        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader)
+        self.base.scrollView.refreshHeaderView = refreshHeader
+        self.base.scrollView.refreshHeaderView?.refreshingClosure = refreshClosure
+        self.base.scrollView.addSubview(self.base.scrollView.refreshHeaderView!)
+    }
+    
+    // auto refresh for header.
+    public func beginHeaderRefreshing() {
+        
+        self.base.scrollView.refreshHeaderView?.beginRefreshing()
+    }
+    
+    // end refresh for header.
+    public func endHeaderRefreshing() {
+        
+        self.base.scrollView.refreshHeaderView?.endRefreshing()
+    }
+}
+
+
 

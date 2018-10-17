@@ -22,6 +22,7 @@
 
 import Foundation
 import UIKit
+import WebKit
 
 public protocol XRExtensionProvider: class {
     associatedtype ProviderType
@@ -44,6 +45,15 @@ public struct XR<Base> {
     }
 }
 
-/// UIScrollView provider
+// MARK: - Provider for UIScrollView
 extension UIScrollView: XRExtensionProvider {
 }
+
+// MARK: - Provider for WKWebView
+extension WKWebView: XRExtensionProvider {
+}
+
+// MARK: - Provider for UIWebView
+extension UIWebView: XRExtensionProvider {
+}
+

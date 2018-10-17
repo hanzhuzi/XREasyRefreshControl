@@ -21,6 +21,13 @@
 		0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */; };
 		012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */; };
 		012B4C9320F789AD0049BB5A /* Marcos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 012B4C9220F789AD0049BB5A /* Marcos.swift */; };
+		0130836E2176CFAD00F227BE /* ExampleTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0130836D2176CFAD00F227BE /* ExampleTableViewController.swift */; };
+		013083702176CFC000F227BE /* ExampleCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0130836F2176CFC000F227BE /* ExampleCollectionViewController.swift */; };
+		013083722176CFDE00F227BE /* ExampleUIWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083712176CFDE00F227BE /* ExampleUIWebViewController.swift */; };
+		013083742176D00200F227BE /* ExampleWKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083732176D00200F227BE /* ExampleWKWebViewController.swift */; };
+		013083762176DE3300F227BE /* UIScrollView+XRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083752176DE3300F227BE /* UIScrollView+XRExtension.swift */; };
+		013083792176E96300F227BE /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083782176E96300F227BE /* ExampleCollectionViewCell.swift */; };
+		0130837B21771D4700F227BE /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0130837A21771D4700F227BE /* demo.gif */; };
 		0155059520FC8A190082599C /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155058D20FC8A190082599C /* XRActivityRefreshFooter.swift */; };
 		0155059720FC8A190082599C /* XRBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155058F20FC8A190082599C /* XRBaseRefreshHeader.swift */; };
 		0155059820FC8A190082599C /* XRBaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155059020FC8A190082599C /* XRBaseRefreshFooter.swift */; };
@@ -57,6 +64,13 @@
 		0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRRefreshControlSettings.swift; sourceTree = "<group>"; };
 		012B4C8320F741E90049BB5A /* XRCustomGifRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRCustomGifRefreshHeader.swift; sourceTree = "<group>"; };
 		012B4C9220F789AD0049BB5A /* Marcos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Marcos.swift; sourceTree = "<group>"; };
+		0130836D2176CFAD00F227BE /* ExampleTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleTableViewController.swift; sourceTree = "<group>"; };
+		0130836F2176CFC000F227BE /* ExampleCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewController.swift; sourceTree = "<group>"; };
+		013083712176CFDE00F227BE /* ExampleUIWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleUIWebViewController.swift; sourceTree = "<group>"; };
+		013083732176D00200F227BE /* ExampleWKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleWKWebViewController.swift; sourceTree = "<group>"; };
+		013083752176DE3300F227BE /* UIScrollView+XRExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRExtension.swift"; sourceTree = "<group>"; };
+		013083782176E96300F227BE /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
+		0130837A21771D4700F227BE /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		0155058D20FC8A190082599C /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
 		0155058F20FC8A190082599C /* XRBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshHeader.swift; sourceTree = "<group>"; };
 		0155059020FC8A190082599C /* XRBaseRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshFooter.swift; sourceTree = "<group>"; };
@@ -87,6 +101,7 @@
 		0107F7E12175D05F000BE9C7 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				013083772176E94400F227BE /* Views */,
 				0107F7E42175D081000BE9C7 /* Common */,
 			);
 			path = Classes;
@@ -125,8 +140,13 @@
 		0125F41420F601760027C078 /* XREasyRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				0130837A21771D4700F227BE /* demo.gif */,
 				0107F7E12175D05F000BE9C7 /* Classes */,
 				0125F41520F601760027C078 /* AppDelegate.swift */,
+				0130836F2176CFC000F227BE /* ExampleCollectionViewController.swift */,
+				013083712176CFDE00F227BE /* ExampleUIWebViewController.swift */,
+				013083732176D00200F227BE /* ExampleWKWebViewController.swift */,
+				0130836D2176CFAD00F227BE /* ExampleTableViewController.swift */,
 				0125F41720F601760027C078 /* ViewController.swift */,
 				015505A520FC8AD50082599C /* Customs */,
 				0125F41920F601760027C078 /* Main.storyboard */,
@@ -148,12 +168,21 @@
 			path = Source;
 			sourceTree = "<group>";
 		};
+		013083772176E94400F227BE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				013083782176E96300F227BE /* ExampleCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		0155059D20FC8A250082599C /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				0155059320FC8A190082599C /* DispatchQueue+XRRefresh.swift */,
 				0155059420FC8A190082599C /* UIScrollView+XRRefresh.swift */,
 				0155059120FC8A190082599C /* UIView+XRExtension.swift */,
+				013083752176DE3300F227BE /* UIScrollView+XRExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -278,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0125F42020F601770027C078 /* LaunchScreen.storyboard in Resources */,
+				0130837B21771D4700F227BE /* demo.gif in Resources */,
 				0107F7DA2175CE83000BE9C7 /* Localizable.strings in Resources */,
 				015505A320FC8AAD0082599C /* gifu-figure.gif in Resources */,
 				015505A420FC8AAD0082599C /* mugen.gif in Resources */,
@@ -333,21 +363,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				0107F7EC2175E190000BE9C7 /* CustomActivityRefreshFooter.swift in Sources */,
+				0130836E2176CFAD00F227BE /* ExampleTableViewController.swift in Sources */,
 				0155059920FC8A190082599C /* UIView+XRExtension.swift in Sources */,
+				013083702176CFC000F227BE /* ExampleCollectionViewController.swift in Sources */,
 				0107F7EA2175D442000BE9C7 /* XRCircleAnimatorRefreshHeader.swift in Sources */,
 				0107F7E82175D1F0000BE9C7 /* LocalizableStringMarcos.swift in Sources */,
+				013083742176D00200F227BE /* ExampleWKWebViewController.swift in Sources */,
 				0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */,
 				0155059720FC8A190082599C /* XRBaseRefreshHeader.swift in Sources */,
 				0125F41820F601760027C078 /* ViewController.swift in Sources */,
 				0125F41620F601760027C078 /* AppDelegate.swift in Sources */,
 				0155059B20FC8A190082599C /* DispatchQueue+XRRefresh.swift in Sources */,
 				012B4C8420F741E90049BB5A /* XRCustomGifRefreshHeader.swift in Sources */,
+				013083722176CFDE00F227BE /* ExampleUIWebViewController.swift in Sources */,
 				01BE05572128389C00E5BE14 /* XRProvider.swift in Sources */,
 				0155059A20FC8A190082599C /* XRActivityRefreshHeader.swift in Sources */,
 				0155059820FC8A190082599C /* XRBaseRefreshFooter.swift in Sources */,
+				013083762176DE3300F227BE /* UIScrollView+XRExtension.swift in Sources */,
 				0155059C20FC8A190082599C /* UIScrollView+XRRefresh.swift in Sources */,
 				0107F7E62175D0A7000BE9C7 /* MRLocalizableStringManager.swift in Sources */,
 				0107F7D72175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift in Sources */,
+				013083792176E96300F227BE /* ExampleCollectionViewCell.swift in Sources */,
 				012B4C9320F789AD0049BB5A /* Marcos.swift in Sources */,
 				0155059520FC8A190082599C /* XRActivityRefreshFooter.swift in Sources */,
 			);

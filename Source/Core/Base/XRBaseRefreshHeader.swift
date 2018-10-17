@@ -166,11 +166,11 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         let fullDisplayOffsetY = -contentInset_top - self.frame.size.height
         let duration = XRRefreshControlSettings.sharedSetting.animateTimeForAdjustContentInSetTop
         
-        UIView.animate(withDuration: duration, animations: {
-            scroller_.xr_contentInsetTop = -fullDisplayOffsetY
-            scroller_.xr_contentOffsetY = fullDisplayOffsetY
-        }) { (_) in
-            // you can't set contentinset-top here, it will shake.
+        DispatchQueue.main.async {
+            UIView.animate(withDuration: duration) {
+                scroller_.xr_contentInsetTop = -fullDisplayOffsetY
+                scroller_.xr_contentOffsetY = fullDisplayOffsetY
+            }
         }
     }
     

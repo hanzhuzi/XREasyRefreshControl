@@ -32,10 +32,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        if #available(iOS 11, *) {
+            UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+        }
+        
         // 全局配置下拉刷新与上拉加载
         XRRefreshControlSettings.sharedSetting.configSettings(
             animateTimeForAdjustContentInSetTop: 0.5,
-            animateTimeForEndRefreshContentInSetTop: 0.35,
+            animateTimeForEndRefreshContentInSetTop: 0.3,
             afterDelayTimeForEndInsetTopRefreshing: 0.5,
             pullLoadingMoreMode: .ignorePullReleaseFast,
             refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),

@@ -27,21 +27,24 @@ class ViewController: UIViewController {
 
     var mainTableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
     
-    var dataArray: [String] = []
+    var dataArray: [String] = [
+                                "UITableView-AddRefresh",
+                                "UICollectionView-AddRefresh",
+                                "UIWebView-AddRefresh",
+                                "WKWebView-AddRefresh"
+                                ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        self.title = "首页"
+        self.title = "Examples"
         
         if #available(iOS 11, *) {
             UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
         }
         
-        for index in 0 ..< 10 {
-            dataArray.append("\(index)")
-        }
+        self.automaticallyAdjustsScrollViewInsets = false
         
         self.view.addSubview(mainTableView)
         mainTableView.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight - 49 - (iSiPhoneX() ? 34 : 0))
@@ -60,48 +63,10 @@ class ViewController: UIViewController {
         
         mainTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCellNull")
         
-        let headerVw = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 100))
-        headerVw.backgroundColor = UIColor.gray
-        mainTableView.tableHeaderView = headerVw
-        
-        let footerVw = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: 100))
-        footerVw.backgroundColor = UIColor.purple.withAlphaComponent(0.5)
-        mainTableView.tableFooterView = footerVw
-        
-        // MARK: - 添加下拉刷新，上拉加载
-        mainTableView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader(), heightForHeader: 65) { [weak self] in
-            
-            if let weakSelf = self {
-                // 请求模拟
-                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-                    weakSelf.dataArray.removeAll()
-                    for index in 0 ..< 10 {
-                        weakSelf.dataArray.append("\(index)")
-                    }
-                    
-                    weakSelf.mainTableView.reloadData()
-                    weakSelf.mainTableView.xr.endHeaderRefreshing()
-                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), heightForFooter: 55) {
-                        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 3, execute: {
-                            for index in 0 ..< 5 {
-                                weakSelf.dataArray.append("\(index)")
-                            }
-                            weakSelf.mainTableView.reloadData()
-                            weakSelf.mainTableView.xr.endFooterRefreshing()
-                        })
-                    }
-                })
-            }
-        }
-        
-        
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        mainTableView.xr.beginHeaderRefreshing()
         
     }
     
@@ -139,6 +104,33 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let navTitle = dataArray[indexPath.row]
+        
+        switch indexPath.row {
+        case 0:
+            let tableViewExampleCtrl = ExampleTableViewController()
+            tableViewExampleCtrl.navigationItem.title = navTitle
+            self.navigationController?.pushViewController(tableViewExampleCtrl, animated: true)
+            break
+        case 1:
+            let collectionViewExampleCtrl = ExampleCollectionViewController()
+            collectionViewExampleCtrl.navigationItem.title = navTitle
+            self.navigationController?.pushViewController(collectionViewExampleCtrl, animated: true)
+            break
+        case 2:
+            let webViewExampleCtrl = ExampleUIWebViewController()
+            webViewExampleCtrl.navigationItem.title = navTitle
+            self.navigationController?.pushViewController(webViewExampleCtrl, animated: true)
+            break
+        case 3:
+            let wkWebViewExampleCtrl = ExampleWKWebViewController()
+            wkWebViewExampleCtrl.navigationItem.title = navTitle
+            self.navigationController?.pushViewController(wkWebViewExampleCtrl, animated: true)
+            break
+        default:
+            break
+        }
         
     }
     
