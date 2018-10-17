@@ -30,7 +30,7 @@ iPhone，iPad，Screen anyway.
 ### Optional (global configuration)
 
 add the code to `didFinishLaunchingWithOptions` function.
-···swift
+```swift
 
 XRRefreshControlSettings.sharedSetting.configSettings(
             animateTimeForAdjustContentInSetTop: 0.5,
@@ -39,7 +39,7 @@ XRRefreshControlSettings.sharedSetting.configSettings(
             pullLoadingMoreMode: .ignorePullReleaseFast,
             refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),
             refreshStatusLblTextFont: UIFont.systemFont(ofSize: 13))
-
+	    
 ```
 
 ### Add refresh to UITableView
