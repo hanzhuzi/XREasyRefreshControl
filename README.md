@@ -1,31 +1,75 @@
-# XREasyRefreshControl
+## XREasyRefreshControl
 
-A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
-These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
+* An easy way to use pull-to-refresh
+* A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
 
-```swift
+* These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView` and `WKWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
 
-public func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
-
-public func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
-
-```
-
-## Installation
+## How to Use `XREasyRefreshControl`
 
 ### From CocoaPods
 
 Add `pod  'XREasyRefreshControl'` to your Podfile.
+* pod install
+* import XREasyRefresh
+
+### Manual import
+
+Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
 
 ## Usage
 
-### Add a drop-down refresh
+### Add refresh to UITableView
 
 ```swift
 
-mainTableView.xr.addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70) {
-       
-	// do refresh request           
+// add header Refresh
+mainTableView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader(), heightForHeader: 65) {
+	// do request...
+}
+
+// add footer Refresh
+mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
+	// do request...
+})
+
+```
+### Add refresh to UICollectionView
+
+```swift
+
+// add header Refresh
+mainCollectionVw.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { 
+	// do request...
+}
+
+// add footer Refresh
+mainCollectionVw.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
+	// do request...
+})
+
+```
+### Add refresh to UIWebView
+
+```swift
+
+// add header Refresh
+webView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { [weak self] in
+	if let weakSelf = self {
+	   weakSelf.webView.reload()
+	}
+}
+
+```
+### Add refresh to WKWebView
+
+```swift
+
+// add header Refresh
+wk_webView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { [weak self] in
+	if let weakSelf = self {
+	   weakSelf.wk_webView.reload()
+	}
 }
 
 ```
@@ -93,6 +137,10 @@ mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 ### Customization
 
 You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`, override `refreshStateChanged`, and, if necessary, override `progressvaluechanged` to customize the drop-down refresh and drop-down loading effects you want.
+
+### Rendering
+
+![Refresh](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo.gif)
 
 ### Under the hood
 
