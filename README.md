@@ -24,17 +24,53 @@ Download `XREasyRefreshControl` add the files in the `Source` directory to your 
 ```swift
 
 // add header Refresh
-mainTableView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader(), heightForHeader: 65) { [weak self] in
-            
-    if let weakSelf = self {
-	weakSelf.requestForData(isRefresh: true, isPullToHeaderRefresh: true)
-    }
+mainTableView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader(), heightForHeader: 65) {
+	// do request...
 }
 
 // add footer Refresh
 mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
-    weakSelf.requestForData(isRefresh: false, isPullToHeaderRefresh: true)
+	// do request...
 })
+
+```
+### Add refresh to UICollectionView
+
+```swift
+
+// add header Refresh
+mainCollectionVw.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { 
+	// do request...
+}
+
+// add footer Refresh
+mainCollectionVw.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
+	// do request...
+})
+
+```
+### Add refresh to UIWebView
+
+```swift
+
+// add header Refresh
+webView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { [weak self] in
+	if let weakSelf = self {
+	   weakSelf.webView.reload()
+	}
+}
+
+```
+### Add refresh to WKWebView
+
+```swift
+
+// add header Refresh
+wk_webView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { [weak self] in
+	if let weakSelf = self {
+	   weakSelf.wk_webView.reload()
+	}
+}
 
 ```
 
@@ -101,6 +137,10 @@ mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 ### Customization
 
 You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`, override `refreshStateChanged`, and, if necessary, override `progressvaluechanged` to customize the drop-down refresh and drop-down loading effects you want.
+
+### Rendering
+
+![Refresh](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo.gif)
 
 ### Under the hood
 
