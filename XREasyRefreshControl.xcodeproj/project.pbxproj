@@ -26,7 +26,6 @@
 		013083742176D00200F227BE /* ExampleWKWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083732176D00200F227BE /* ExampleWKWebViewController.swift */; };
 		013083762176DE3300F227BE /* UIScrollView+XRExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083752176DE3300F227BE /* UIScrollView+XRExtension.swift */; };
 		013083792176E96300F227BE /* ExampleCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 013083782176E96300F227BE /* ExampleCollectionViewCell.swift */; };
-		0130837B21771D4700F227BE /* demo.gif in Resources */ = {isa = PBXBuildFile; fileRef = 0130837A21771D4700F227BE /* demo.gif */; };
 		0155059520FC8A190082599C /* XRActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155058D20FC8A190082599C /* XRActivityRefreshFooter.swift */; };
 		0155059720FC8A190082599C /* XRBaseRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155058F20FC8A190082599C /* XRBaseRefreshHeader.swift */; };
 		0155059820FC8A190082599C /* XRBaseRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155059020FC8A190082599C /* XRBaseRefreshFooter.swift */; };
@@ -66,7 +65,6 @@
 		013083732176D00200F227BE /* ExampleWKWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleWKWebViewController.swift; sourceTree = "<group>"; };
 		013083752176DE3300F227BE /* UIScrollView+XRExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRExtension.swift"; sourceTree = "<group>"; };
 		013083782176E96300F227BE /* ExampleCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionViewCell.swift; sourceTree = "<group>"; };
-		0130837A21771D4700F227BE /* demo.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = demo.gif; sourceTree = "<group>"; };
 		0155058D20FC8A190082599C /* XRActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshFooter.swift; sourceTree = "<group>"; };
 		0155058F20FC8A190082599C /* XRBaseRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshHeader.swift; sourceTree = "<group>"; };
 		0155059020FC8A190082599C /* XRBaseRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRBaseRefreshFooter.swift; sourceTree = "<group>"; };
@@ -134,7 +132,6 @@
 		0125F41420F601760027C078 /* XREasyRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
-				0130837A21771D4700F227BE /* demo.gif */,
 				0107F7E12175D05F000BE9C7 /* Classes */,
 				0125F41520F601760027C078 /* AppDelegate.swift */,
 				0130836F2176CFC000F227BE /* ExampleCollectionViewController.swift */,
@@ -298,7 +295,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				0125F42020F601770027C078 /* LaunchScreen.storyboard in Resources */,
-				0130837B21771D4700F227BE /* demo.gif in Resources */,
 				0107F7DA2175CE83000BE9C7 /* Localizable.strings in Resources */,
 				0125F41D20F601770027C078 /* Assets.xcassets in Resources */,
 				0125F41B20F601760027C078 /* Main.storyboard in Resources */,
