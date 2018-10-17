@@ -134,13 +134,15 @@ mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 
 ```
 
+### Rendering
+
+![UITableView,UICollectionView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo1.gif)
+
+![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo2.gif)
+
 ### Customization
 
 You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`, override `refreshStateChanged`, and, if necessary, override `progressvaluechanged` to customize the drop-down refresh and drop-down loading effects you want.
-
-### Rendering
-
-![Refresh](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo.gif)
 
 ### Under the hood
 
