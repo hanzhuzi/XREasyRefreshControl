@@ -19,9 +19,11 @@ Download `XREasyRefreshControl` add the files in the `Source` directory to your 
 
 ### Supports
 
-* >= Swift 3.2
-* >= iOS 8.0
+* ARC
+* Swift 4.0
+* iOS 8.0
 * Xcode 9.3 or Latter
+iPhone，iPad，Screen anyway.
 
 ## Usage
 
