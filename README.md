@@ -17,6 +17,12 @@ Add `pod  'XREasyRefreshControl'` to your Podfile.
 
 Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
 
+### Supports
+
+* >= Swift 3.2
+* >= iOS 8.0
+* Xcode 9.3 or Latter
+
 ## Usage
 
 ### Add refresh to UITableView
