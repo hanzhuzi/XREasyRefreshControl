@@ -1,32 +1,40 @@
-# XREasyRefreshControl
+## XREasyRefreshControl
 
-A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
-These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
+* An easy way to use pull-to-refresh
+* A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements.
 
-```swift
+* These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView` and `WKWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
 
-public func addPullToRefreshWithRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
-
-public func addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRBaseRefreshFooter, heightForFooter: CGFloat = 55, refreshingClosure refreshClosure:@escaping (() -> Swift.Void))
-
-```
-
-## Installation
+## How to Use `XREasyRefreshControl`
 
 ### From CocoaPods
 
 Add `pod  'XREasyRefreshControl'` to your Podfile.
+* pod install
+* import XREasyRefresh
+
+### Manual import
+
+Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
 
 ## Usage
 
-### Add a drop-down refresh
+### Add refresh to UITableView
 
 ```swift
 
-mainTableView.xr.addPullToRefreshWithRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70) {
-       
-	// do refresh request           
+// add header Refresh
+mainTableView.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader(), heightForHeader: 65) { [weak self] in
+            
+    if let weakSelf = self {
+	weakSelf.requestForData(isRefresh: true, isPullToHeaderRefresh: true)
+    }
 }
+
+// add footer Refresh
+mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
+    weakSelf.requestForData(isRefresh: false, isPullToHeaderRefresh: true)
+})
 
 ```
 
