@@ -17,7 +17,30 @@ Add `pod  'XREasyRefreshControl'` to your Podfile.
 
 Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
 
+### Supports
+
+* ARC
+* Swift 4.0
+* iOS 8.0
+* Xcode 9.3 or Latter
+iPhone，iPad，Screen anyway.
+
 ## Usage
+
+### Optional (global configuration)
+
+add the code to `didFinishLaunchingWithOptions` function.
+```swift
+
+XRRefreshControlSettings.sharedSetting.configSettings(
+            animateTimeForAdjustContentInSetTop: 0.5,
+            animateTimeForEndRefreshContentInSetTop: 0.3,
+            afterDelayTimeForEndInsetTopRefreshing: 0.5,
+            pullLoadingMoreMode: .ignorePullReleaseFast,
+            refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),
+            refreshStatusLblTextFont: UIFont.systemFont(ofSize: 13))
+	    
+```
 
 ### Add refresh to UITableView
 
@@ -134,13 +157,15 @@ mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 
 ```
 
+### Rendering
+
+![UITableView,UICollectionView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo1.gif)
+
+![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo2.gif)
+
 ### Customization
 
 You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`, override `refreshStateChanged`, and, if necessary, override `progressvaluechanged` to customize the drop-down refresh and drop-down loading effects you want.
-
-### Rendering
-
-![Refresh](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo.gif)
 
 ### Under the hood
 
