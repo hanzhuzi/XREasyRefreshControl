@@ -45,7 +45,7 @@ class ExampleTableViewController: UIViewController {
         }
         
         self.view.addSubview(mainTableView)
-        mainTableView.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight - (iSiPhoneX() ? 34 : 0))
+        mainTableView.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight)
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -122,7 +122,7 @@ class ExampleTableViewController: UIViewController {
                 
                 if weakSelf.dataArray.count > 0 {
                     // 添加上拉加载更多
-                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
+                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), heightForFooter: 55 + XR_MainIndicatorBottomHeight, refreshingClosure: {
                         weakSelf.requestForData(isRefresh: false, isPullToHeaderRefresh: true)
                     })
                 }
@@ -158,7 +158,7 @@ extension ExampleTableViewController: UITableViewDelegate, UITableViewDataSource
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellIdentifier")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "UITableViewCellIdentifier")
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "UITableViewCellIdentifier")
         }
         
         cell?.textLabel?.text = dataArray[indexPath.row]

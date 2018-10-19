@@ -118,7 +118,7 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
                 
                 if weakSelf.dataArray.count > 0 {
                     // 添加上拉加载更多
-                    weakSelf.mainCollectionVw.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), refreshingClosure: {
+                    weakSelf.mainCollectionVw.xr.addPullToRefreshFooter(refreshFooter: CustomActivityRefreshFooter(), heightForFooter: 55 + XR_MainIndicatorBottomHeight, refreshingClosure: {
                         weakSelf.requestForData(isRefresh: false, isPullToHeaderRefresh: true)
                     })
                 }

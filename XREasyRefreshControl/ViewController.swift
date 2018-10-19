@@ -47,7 +47,7 @@ class ViewController: UIViewController {
         self.automaticallyAdjustsScrollViewInsets = false
         
         self.view.addSubview(mainTableView)
-        mainTableView.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight - 49 - (iSiPhoneX() ? 34 : 0))
+        mainTableView.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight - 49 - (iSiPhoneX_XS() ? 34 : 0))
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -62,6 +62,9 @@ class ViewController: UIViewController {
         mainTableView.separatorInset = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
         
         mainTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCellNull")
+        
+        print("\(UIScreen.main.bounds.size)")
+        
         
     }
     
@@ -94,7 +97,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         
         var cell = tableView.dequeueReusableCell(withIdentifier: "UITableViewCellIdentifier")
         if cell == nil {
-            cell = UITableViewCell(style: UITableViewCellStyle.default, reuseIdentifier: "UITableViewCellIdentifier")
+            cell = UITableViewCell(style: UITableViewCell.CellStyle.default, reuseIdentifier: "UITableViewCellIdentifier")
         }
         
         cell?.textLabel?.text = dataArray[indexPath.row]

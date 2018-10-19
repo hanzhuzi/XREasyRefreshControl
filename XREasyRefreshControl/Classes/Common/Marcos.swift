@@ -25,9 +25,46 @@ import Foundation
 import UIKit
 
 //MARK: - 屏幕尺寸
-// iPhone设备定义(物理尺寸)
-func iSiPhoneX() -> Bool {
-    return (UIScreen.main.bounds.size.width == 375 && UIScreen.main.bounds.size.height == 812) || (UIScreen.main.bounds.size.width == 812 && UIScreen.main.bounds.size.height == 375)
+// iPhoneX, XS
+func iSiPhoneX_XS() -> Bool {
+    
+    return (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 1125, height: 2436)) : false) || (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 2436, height: 1125)) : false)
 }
 
-public let XR_NavigationBarHeight: CGFloat = iSiPhoneX() ? 88 : 64
+// iPhoneXR
+func iSiPhoneXR() -> Bool {
+    
+    return (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 828, height: 1792)) : false) || (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 1792, height: 828)) : false)
+}
+
+// iPhoneXS_Max
+func iSiPhoneXS_Max() -> Bool {
+    
+    return (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 1242, height: 2688)) : false) || (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 2688, height: 1242)) : false)
+}
+
+// 是否有齐刘海和虚拟指示器
+func iSiPhoneXSerries() -> Bool {
+    
+    var isiPhoneXSerries: Bool = false
+    
+    if UIDevice.current.userInterfaceIdiom != .phone {
+        isiPhoneXSerries = false
+    }
+    
+    if #available(iOS 11.0, *) {
+        if let mainWindow = UIApplication.shared.delegate?.window {
+            if mainWindow!.safeAreaInsets.bottom > 0 {
+                isiPhoneXSerries = true
+            }
+        }
+    }
+    
+    isiPhoneXSerries = iSiPhoneX_XS() || iSiPhoneXR() || iSiPhoneXS_Max()
+    
+    return isiPhoneXSerries
+}
+
+public let XR_NavigationBarHeight: CGFloat = iSiPhoneXSerries() ? 88 : 64
+
+public let XR_MainIndicatorBottomHeight: CGFloat = iSiPhoneXSerries() ? 34 : 0

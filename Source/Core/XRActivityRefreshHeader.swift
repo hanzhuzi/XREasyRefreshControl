@@ -25,7 +25,7 @@ import UIKit
 
 public class XRActivityRefreshHeader: XRBaseRefreshHeader {
 
-    lazy var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: UIActivityIndicatorViewStyle.white)
+    lazy var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.white)
     lazy var statusLbl: UILabel = UILabel(frame: CGRect.zero)
     
     override public init() {

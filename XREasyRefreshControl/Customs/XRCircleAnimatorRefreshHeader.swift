@@ -37,8 +37,8 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         circleLayer.backgroundColor = UIColor.clear.cgColor
         circleLayer.fillColor = UIColor.clear.cgColor
         
-        circleLayer.lineCap = kCALineCapRound
-        circleLayer.lineJoin = kCALineJoinRound
+        circleLayer.lineCap = CAShapeLayerLineCap.round
+        circleLayer.lineJoin = CAShapeLayerLineJoin.round
         circleLayer.lineWidth = 3
         circleLayer.strokeColor = UIColor.black.cgColor
         circleLayer.strokeStart = 0
@@ -131,7 +131,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         rotateAnima.duration = 0.5
         rotateAnima.isRemovedOnCompletion = false
         rotateAnima.repeatCount = HUGE
-        rotateAnima.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        rotateAnima.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         gradientLayer.add(rotateAnima, forKey: kRotationAnimationForGradientLayerKey)
     }
     
@@ -147,7 +147,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         strokeEndAnima.duration = XRRefreshControlSettings.sharedSetting.animateTimeForEndRefreshContentInSetTop + XRRefreshControlSettings.sharedSetting.afterDelayTimeForEndInsetTopRefreshing
         strokeEndAnima.isRemovedOnCompletion = false
         strokeEndAnima.repeatCount = 1
-        strokeEndAnima.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        strokeEndAnima.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
         circleLayer.add(strokeEndAnima, forKey: kStrokeEndAnimationForCircleLayerKey)
     }
     
