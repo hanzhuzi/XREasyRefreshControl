@@ -30,11 +30,32 @@ public class XRActivityRefreshFooter: XRBaseRefreshFooter {
     
     override public init() {
         super.init()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        
+        if self.refreshState == .noMoreData || self.refreshState == .loadingFailure {
+            statusLbl.frame = CGRect(x: (self.bounds.size.width - statusLbl.bounds.size.width) * 0.5, y: (self.bounds.size.height - 35 - ignoreBottomHeight) * 0.5, width: statusLbl.bounds.size.width, height: 35)
+        }
+        else {
+            statusLbl.frame = CGRect(x: (self.bounds.size.width - statusLbl.bounds.size.width) * 0.5 + 35 * 0.5, y: (self.bounds.size.height - 35 - ignoreBottomHeight) * 0.5, width: statusLbl.bounds.size.width, height: 35)
+        }
+        
+        activityIndicator.frame = CGRect(x: statusLbl.frame.origin.x - 35, y: statusLbl.frame.origin.y, width: 35, height: 35)
+    }
+    
+    override public func prepareForRefresh() {
+        super.prepareForRefresh()
         
         self.backgroundColor = UIColor.clear
         
         activityIndicator.frame = CGRect(x: 0, y: 0, width: 35, height: 35)
-        activityIndicator.center = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5)
+        activityIndicator.center = CGPoint(x: self.frame.size.width * 0.5, y: 55)
         self.addSubview(activityIndicator)
         
         activityIndicator.hidesWhenStopped = false
@@ -51,28 +72,15 @@ public class XRActivityRefreshFooter: XRBaseRefreshFooter {
         let statusLblTapGestrue = UITapGestureRecognizer(target: self, action: #selector(self.reloadingWithLoadingFailureAction))
         statusLblTapGestrue.numberOfTapsRequired = 1
         statusLbl.addGestureRecognizer(statusLblTapGestrue)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override open func layoutSubviews() {
-        super.layoutSubviews()
         
         if self.refreshState == .noMoreData || self.refreshState == .loadingFailure {
-            statusLbl.frame = CGRect(x: (self.bounds.size.width - statusLbl.bounds.size.width) * 0.5, y: (self.bounds.size.height - 35) * 0.5, width: statusLbl.bounds.size.width, height: 35)
+            statusLbl.frame = CGRect(x: (self.bounds.size.width - statusLbl.bounds.size.width) * 0.5, y: (self.bounds.size.height - 35 - ignoreBottomHeight) * 0.5, width: statusLbl.bounds.size.width, height: 35)
         }
         else {
-            statusLbl.frame = CGRect(x: (self.bounds.size.width - statusLbl.bounds.size.width) * 0.5 + 35 * 0.5, y: (self.bounds.size.height - 35) * 0.5, width: statusLbl.bounds.size.width, height: 35)
+            statusLbl.frame = CGRect(x: (self.bounds.size.width - statusLbl.bounds.size.width) * 0.5 + 35 * 0.5, y: (self.bounds.size.height - 35 - ignoreBottomHeight) * 0.5, width: statusLbl.bounds.size.width, height: 35)
         }
         
-        activityIndicator.frame = CGRect(x: statusLbl.frame.origin.x - 35, y: (self.bounds.size.height - 35) * 0.5, width: 35, height: 35)
-    }
-    
-    override public func prepareForRefresh() {
-        super.prepareForRefresh()
-        
+        activityIndicator.frame = CGRect(x: statusLbl.frame.origin.x - 35, y: statusLbl.frame.origin.y, width: 35, height: 35)
     }
     
     override public func refreshStateChanged() {
@@ -81,12 +89,12 @@ public class XRActivityRefreshFooter: XRBaseRefreshFooter {
         case .idle:
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = false
-            statusLbl.text = "上拉加载更多"
+            statusLbl.text = "上拉以加载更多"
             break
         case .pulling:
             activityIndicator.stopAnimating()
             activityIndicator.isHidden = false
-            statusLbl.text = "上拉即可加载更多"
+            statusLbl.text = "上拉以加载更多"
             break
         case .pullHalfing:
             activityIndicator.stopAnimating()
@@ -101,7 +109,7 @@ public class XRActivityRefreshFooter: XRBaseRefreshFooter {
         case .refreshing:
             activityIndicator.startAnimating()
             activityIndicator.isHidden = false
-            statusLbl.text = "加载中"
+            statusLbl.text = "加载中..."
             break
         case .finished:
             activityIndicator.stopAnimating()

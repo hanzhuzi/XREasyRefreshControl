@@ -7,11 +7,11 @@
 
 Pod::Spec.new do |s|
   s.name     	 = 'XREasyRefreshControl'
-  s.version  	 = '1.2.0'
+  s.version  	 = '1.2.1'
   s.license  	 = { :type => 'MIT', :file => 'LICENSE'}
   s.summary  	 = 'A powerful and lightweight pull-down refresh and pull-up load control.'
   s.homepage 	 = 'https://github.com/hanzhuzi/XREasyRefreshControl'
-  s.author       = '是心作佛'
+  s.author       = '以戒为师'
   s.authors      = { 'hanzhuzi' => '1754410821@qq.com' }
   s.source       = { :git => 'https://github.com/hanzhuzi/XREasyRefreshControl.git', :tag => s.version }
   s.requires_arc = true
@@ -20,6 +20,6 @@ Pod::Spec.new do |s|
 
   s.ios.framework  = 'UIKit', 'Foundation'
   s.module_name    = 'XREasyRefresh'
-  s.swift_version  = '3.2'
+  s.swift_version  = '4.2'
   s.source_files   = 'Source/**/*.swift'
 end

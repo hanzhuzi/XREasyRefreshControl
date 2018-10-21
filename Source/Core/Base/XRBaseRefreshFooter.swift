@@ -31,6 +31,9 @@ open class XRBaseRefreshFooter: UIView {
     
     private var scroller: UIScrollView?
     
+    // 底部忽略的高度
+    public var ignoreBottomHeight: CGFloat = 0
+    
     public var refreshState: XRPullRefreshState = .idle {
         didSet {
             if refreshState != oldValue {
@@ -161,13 +164,13 @@ open class XRBaseRefreshFooter: UIView {
         let contentOffset = scrollView.contentOffset
         let contentSize = scrollView.contentSize
         
-        var fullDisplayOffsetY = contentSize.height + scrollView.xr_contentInsetBottom
+        var fullDisplayOffsetY = contentSize.height + scrollView.xr_contentInsetBottom + ignoreBottomHeight
         
         if XRRefreshControlSettings.sharedSetting.pullLoadingMoreMode == .ignorePullReleaseFast {
             fullDisplayOffsetY = contentSize.height + scrollView.xr_contentInsetBottom - self.xr_height
         }
         
-        let halfDisplayOffsetY = contentSize.height + scrollView.xr_contentInsetBottom - self.xr_height * 0.5
+        let halfDisplayOffsetY = contentSize.height + scrollView.xr_contentInsetBottom + ignoreBottomHeight - self.xr_height * 0.5
         let changeOffsetY = contentOffset.y + scrollView.xr_height
         
         if contentOffset.y < scrollView.contentInset.top {
@@ -192,8 +195,8 @@ open class XRBaseRefreshFooter: UIView {
             }
             
             if contentOffset.y > contentSize.height {
-                let distance = fabs(contentOffset.y)
-                let absFullHeight = fabs(fullDisplayOffsetY)
+                let distance = abs(contentOffset.y)
+                let absFullHeight = abs(fullDisplayOffsetY)
                 var progress = (distance - contentSize.height) / (absFullHeight - contentSize.height)
                 progress = progress < 0 ? 0 : progress
                 progress = progress > 1 ? 1 : progress
@@ -216,8 +219,8 @@ open class XRBaseRefreshFooter: UIView {
             }
             
             if contentOffset.y > contentSize.height {
-                let distance = fabs(contentOffset.y)
-                let absFullHeight = fabs(fullDisplayOffsetY)
+                let distance = abs(contentOffset.y)
+                let absFullHeight = abs(fullDisplayOffsetY)
                 var progress = (distance - contentSize.height) / (absFullHeight - contentSize.height)
                 progress = progress < 0 ? 0 : progress
                 progress = progress > 1 ? 1 : progress
@@ -237,8 +240,8 @@ open class XRBaseRefreshFooter: UIView {
                 }
                 
                 if contentOffset.y > contentSize.height {
-                    let distance = fabs(contentOffset.y)
-                    let absFullHeight = fabs(fullDisplayOffsetY)
+                    let distance = abs(contentOffset.y)
+                    let absFullHeight = abs(fullDisplayOffsetY)
                     var progress = (distance - contentSize.height) / (absFullHeight - contentSize.height)
                     progress = progress < 0 ? 0 : progress
                     progress = progress > 1 ? 1 : progress

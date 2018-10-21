@@ -33,6 +33,14 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     
     override init() {
         super.init()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    public override func prepareForRefresh() {
+        super.prepareForRefresh()
         
         circleLayer.backgroundColor = UIColor.clear.cgColor
         circleLayer.fillColor = UIColor.clear.cgColor
@@ -55,10 +63,6 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         gradientLayer.locations = [0, 1]
         self.layer.addSublayer(gradientLayer)
-    }
-    
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
     }
     
     override public func refreshStateChanged() {
@@ -118,7 +122,7 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         circleLayer.path = bezierPath.cgPath
         
         gradientLayer.bounds = CGRect(x: 0, y: 0, width: 30, height: 30)
-        gradientLayer.position = CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5)
+        gradientLayer.position = CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5 + ignoreTopHeight * 0.5)
         gradientLayer.mask = circleLayer
     }
     

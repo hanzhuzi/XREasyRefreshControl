@@ -1,28 +1,14 @@
 //
-//  ExampleCollectionViewController.swift
-//  Copyright (c) 2018 - 2020 Ran Xu
+//  ExampleCollectionNavHiddenViewController.swift
+//  XREasyRefreshControl
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  Created by 徐冉 on 2018/10/21.
+//  Copyright © 2018年 是心作佛. All rights reserved.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
 
 import UIKit
 
-class ExampleCollectionViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource {
+class ExampleCollectionNavHiddenViewController: UIViewController , UICollectionViewDelegate, UICollectionViewDataSource {
 
     private var mainCollectionVw: UICollectionView = {
         
@@ -45,7 +31,7 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         self.view.backgroundColor = UIColor.white
         
@@ -57,7 +43,7 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
         
         self.view.addSubview(mainCollectionVw)
         mainCollectionVw.backgroundColor = UIColor.white
-        mainCollectionVw.frame = CGRect(x: 0, y: XR_NavigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XR_NavigationBarHeight)
+        mainCollectionVw.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         
         mainCollectionVw.delegate = self
         mainCollectionVw.dataSource = self
@@ -66,14 +52,14 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
         mainCollectionVw.register(ExampleCollectionViewCell.classForCoder(), forCellWithReuseIdentifier: "ExampleCollectionViewCell")
         
         // 添加下拉刷新
-        mainCollectionVw.xr.addPullToRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader()) { [weak self] in
+        mainCollectionVw.xr.addPullToRefreshHeader(refreshHeader: XRCircleAnimatorRefreshHeader(), heightForHeader: 70, ignoreTopHeight: XRRefreshMarcos.xr_StatusBarHeight) { [weak self] in
             if let weakSelf = self {
                 weakSelf.requestForData(isRefresh: true, isPullToHeaderRefresh: true)
             }
         }
         
     }
-
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -91,7 +77,7 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func didReceiveMemoryWarning() {
@@ -131,12 +117,13 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
                 
                 // 服务端数据全部加载完毕时
                 if weakSelf.dataArray.count >= 60 {
+                    // 加载失败
+                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithLoadingFailure()
+                    
+                    // 结束刷新，并移除loadingFooter
+                    //                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithRemoveLoadingMoreView()
                     // 显示无更多数据了
                     weakSelf.mainCollectionVw.xr.endFooterRefreshingWithNoMoreData()
-//                    // 结束刷新，并移除loadingFooter
-//                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithRemoveLoadingMoreView()
-//                    // 加载失败
-//                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithLoadingFailure()
                 }
                 
             }
@@ -163,8 +150,7 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        let exampleCtrl = ExampleCollectionNavHiddenViewController()
-        self.navigationController?.pushViewController(exampleCtrl, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     

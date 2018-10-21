@@ -1,28 +1,14 @@
 //
-//  ExampleTableViewController.swift
-//  Copyright (c) 2018 - 2020 Ran Xu
+//  ExampleNavHiddenViewController.swift
+//  XREasyRefreshControl
 //
-//  Permission is hereby granted, free of charge, to any person obtaining a copy
-//  of this software and associated documentation files (the "Software"), to deal
-//  in the Software without restriction, including without limitation the rights
-//  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-//  copies of the Software, and to permit persons to whom the Software is
-//  furnished to do so, subject to the following conditions:
+//  Created by 徐冉 on 2018/10/21.
+//  Copyright © 2018年 是心作佛. All rights reserved.
 //
-//  The above copyright notice and this permission notice shall be included in all
-//  copies or substantial portions of the Software.
-//
-//  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-//  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-//  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-//  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-//  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-//  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-//  SOFTWARE.
 
 import UIKit
 
-class ExampleTableViewController: UIViewController {
+class ExampleNavHiddenViewController: UIViewController {
 
     var mainTableView: UITableView = UITableView(frame: CGRect.zero, style: .plain)
     
@@ -45,7 +31,7 @@ class ExampleTableViewController: UIViewController {
         }
         
         self.view.addSubview(mainTableView)
-        mainTableView.frame = CGRect(x: 0, y: XRRefreshMarcos.xr_StatusBarHeight + XRRefreshMarcos.xr_navigationBarHeight, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height - XRRefreshMarcos.xr_StatusBarHeight - XRRefreshMarcos.xr_navigationBarHeight)
+        mainTableView.frame = CGRect(x: 0, y: 0, width: UIScreen.main.bounds.size.width, height: UIScreen.main.bounds.size.height)
         
         mainTableView.delegate = self
         mainTableView.dataSource = self
@@ -70,7 +56,7 @@ class ExampleTableViewController: UIViewController {
         mainTableView.tableFooterView = footerVw
         
         // 添加下拉刷新
-        mainTableView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader(), heightForHeader: 65) { [weak self] in
+        mainTableView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader(), heightForHeader: 65, ignoreTopHeight: XRRefreshMarcos.xr_StatusBarHeight) { [weak self] in
             
             if let weakSelf = self {
                 weakSelf.requestForData(isRefresh: true, isPullToHeaderRefresh: true)
@@ -82,7 +68,7 @@ class ExampleTableViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        self.navigationController?.setNavigationBarHidden(false, animated: true)
+        self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -128,20 +114,24 @@ class ExampleTableViewController: UIViewController {
                 
                 if weakSelf.dataArray.count > 0 {
                     // 添加上拉加载更多
-                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 60, refreshingClosure: {
+                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 60, ignoreBottomHeight: XRRefreshMarcos.xr_BottomIndicatorHeight, refreshingClosure: {
                         weakSelf.requestForData(isRefresh: false, isPullToHeaderRefresh: true)
                     })
                 }
                 
                 // 服务端数据全部加载完毕时
                 if weakSelf.dataArray.count >= 40 {
+                    // 加载失败
+                    weakSelf.mainTableView.xr.endFooterRefreshingWithLoadingFailure()
+                }
+                else if weakSelf.dataArray.count >= 50 {
                     // 显示无更多数据了
                     weakSelf.mainTableView.xr.endFooterRefreshingWithNoMoreData()
-                    //                    // 结束刷新，并移除loadingFooter
-                    //                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithRemoveLoadingMoreView()
-                    //                    // 加载失败
-                    //                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithLoadingFailure()
                 }
+                
+                // 结束刷新，并移除loadingFooter
+                // weakSelf.mainCollectionVw.xr.
+                // endFooterRefreshingWithRemoveLoadingMoreView()
                 
             }
         })
@@ -150,7 +140,7 @@ class ExampleTableViewController: UIViewController {
 }
 
 // MAKR: - UITableViewDelegate & UITableViewDataSource
-extension ExampleTableViewController: UITableViewDelegate, UITableViewDataSource {
+extension ExampleNavHiddenViewController: UITableViewDelegate, UITableViewDataSource {
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -175,8 +165,7 @@ extension ExampleTableViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
-        let exmplaCtrl = ExampleNavHiddenViewController()
-        self.navigationController?.pushViewController(exmplaCtrl, animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -201,7 +190,3 @@ extension ExampleTableViewController: UITableViewDelegate, UITableViewDataSource
     
     
 }
-
-
-
-

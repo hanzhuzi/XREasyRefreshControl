@@ -49,7 +49,7 @@ class ExampleUIWebViewController: UIViewController {
         let request = URLRequest(url: URL(string: "https://github.com/hanzhuzi/")!)
         webVw.loadRequest(request)
         
-        webVw.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { [weak self] in
+        webVw.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) { [weak self] in
             if let weakSelf = self {
                 weakSelf.webVw.reload()
             }

@@ -30,6 +30,24 @@ public class XRActivityRefreshHeader: XRBaseRefreshHeader {
     
     override public init() {
         super.init()
+    }
+    
+    required public init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    override public func layoutSubviews() {
+        super.layoutSubviews()
+        
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.center = CGPoint(x: self.frame.size.width * 0.5, y: ignoreTopHeight + (self.frame.size.height - ignoreTopHeight) * 0.5 - 12)
+        
+        statusLbl.frame = CGRect(x: 0, y: 0, width: 200, height: 16)
+        statusLbl.center = CGPoint(x: activityIndicator.center.x, y: activityIndicator.center.y + 25)
+    }
+    
+    public override func prepareForRefresh() {
+        super.prepareForRefresh()
         
         self.backgroundColor = UIColor.clear
         
@@ -48,20 +66,6 @@ public class XRActivityRefreshHeader: XRBaseRefreshHeader {
         self.addSubview(statusLbl)
     }
     
-    required public init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
-    
-    override public func layoutSubviews() {
-        super.layoutSubviews()
-        
-        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        activityIndicator.center = CGPoint(x: self.frame.size.width * 0.5, y: self.frame.size.height * 0.5 - 12)
-        
-        statusLbl.frame = CGRect(x: 0, y: 0, width: 200, height: 16)
-        statusLbl.center = CGPoint(x: activityIndicator.center.x, y: activityIndicator.center.y + 25)
-    }
-    
     override public func refreshStateChanged() {
         
         switch refreshState {
@@ -71,7 +75,7 @@ public class XRActivityRefreshHeader: XRBaseRefreshHeader {
             break
         case .pulling:
             activityIndicator.stopAnimating()
-            statusLbl.text = "下拉即可刷新"
+            statusLbl.text = "下拉以刷新"
             break
         case .pullHalfing:
             activityIndicator.stopAnimating()

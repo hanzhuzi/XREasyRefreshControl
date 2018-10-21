@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0104CA0C217C25E900E90168 /* XRRefreshMarcos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104CA0B217C25E900E90168 /* XRRefreshMarcos.swift */; };
+		0104CA0E217C496800E90168 /* ExampleNavHiddenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104CA0D217C496800E90168 /* ExampleNavHiddenViewController.swift */; };
+		0104CA10217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104CA0F217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift */; };
 		0107F7D72175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7D62175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift */; };
 		0107F7DA2175CE83000BE9C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0107F7D82175CE83000BE9C7 /* Localizable.strings */; };
 		0107F7E62175D0A7000BE9C7 /* MRLocalizableStringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7E52175D0A7000BE9C7 /* MRLocalizableStringManager.swift */; };
@@ -38,6 +41,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0104CA0B217C25E900E90168 /* XRRefreshMarcos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRRefreshMarcos.swift; sourceTree = "<group>"; };
+		0104CA0D217C496800E90168 /* ExampleNavHiddenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleNavHiddenViewController.swift; sourceTree = "<group>"; };
+		0104CA0F217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExampleCollectionNavHiddenViewController.swift; sourceTree = "<group>"; };
 		0107F7D62175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityRefreshHeader.swift; sourceTree = "<group>"; };
 		0107F7D92175CE83000BE9C7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		0107F7DB2175CFA6000BE9C7 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
@@ -135,9 +141,11 @@
 				0107F7E12175D05F000BE9C7 /* Classes */,
 				0125F41520F601760027C078 /* AppDelegate.swift */,
 				0130836F2176CFC000F227BE /* ExampleCollectionViewController.swift */,
+				0104CA0F217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift */,
 				013083712176CFDE00F227BE /* ExampleUIWebViewController.swift */,
 				013083732176D00200F227BE /* ExampleWKWebViewController.swift */,
 				0130836D2176CFAD00F227BE /* ExampleTableViewController.swift */,
+				0104CA0D217C496800E90168 /* ExampleNavHiddenViewController.swift */,
 				0125F41720F601760027C078 /* ViewController.swift */,
 				015505A520FC8AD50082599C /* Customs */,
 				0125F41920F601760027C078 /* Main.storyboard */,
@@ -155,6 +163,7 @@
 				0155059D20FC8A250082599C /* Extensions */,
 				0155059F20FC8A4C0082599C /* Core */,
 				0125F43F20F612780027C078 /* XRRefreshControlSettings.swift */,
+				0104CA0B217C25E900E90168 /* XRRefreshMarcos.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -353,6 +362,7 @@
 				013083702176CFC000F227BE /* ExampleCollectionViewController.swift in Sources */,
 				0107F7EA2175D442000BE9C7 /* XRCircleAnimatorRefreshHeader.swift in Sources */,
 				0107F7E82175D1F0000BE9C7 /* LocalizableStringMarcos.swift in Sources */,
+				0104CA0C217C25E900E90168 /* XRRefreshMarcos.swift in Sources */,
 				013083742176D00200F227BE /* ExampleWKWebViewController.swift in Sources */,
 				0125F44820F612780027C078 /* XRRefreshControlSettings.swift in Sources */,
 				0155059720FC8A190082599C /* XRBaseRefreshHeader.swift in Sources */,
@@ -361,10 +371,12 @@
 				0155059B20FC8A190082599C /* DispatchQueue+XRRefresh.swift in Sources */,
 				013083722176CFDE00F227BE /* ExampleUIWebViewController.swift in Sources */,
 				01BE05572128389C00E5BE14 /* XRProvider.swift in Sources */,
+				0104CA10217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift in Sources */,
 				0155059A20FC8A190082599C /* XRActivityRefreshHeader.swift in Sources */,
 				0155059820FC8A190082599C /* XRBaseRefreshFooter.swift in Sources */,
 				013083762176DE3300F227BE /* UIScrollView+XRExtension.swift in Sources */,
 				0155059C20FC8A190082599C /* UIScrollView+XRRefresh.swift in Sources */,
+				0104CA0E217C496800E90168 /* ExampleNavHiddenViewController.swift in Sources */,
 				0107F7E62175D0A7000BE9C7 /* MRLocalizableStringManager.swift in Sources */,
 				0107F7D72175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift in Sources */,
 				013083792176E96300F227BE /* ExampleCollectionViewCell.swift in Sources */,

@@ -58,7 +58,12 @@ extension UIScrollView {
 public extension XR where Base: UIScrollView {
     
     /// MARK: - Pull to refreshing
-    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    // heightForFooter: 真正的refreshHeaderView显示的高度
+    // ignoreTopHeight: 忽略的刷新头部高度，用来适配iPhoneX, XS, XR, XS Max机型
+    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
+                                       heightForHeader: CGFloat = 70,
+                                       ignoreTopHeight: CGFloat = 0,
+                                       refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         self.base.refreshHeaderView?.removeFromSuperview()
         
@@ -70,7 +75,9 @@ public extension XR where Base: UIScrollView {
             scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
-        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader)
+        refreshHeader.ignoreTopHeight = ignoreTopHeight
+        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader + ignoreTopHeight)
+        
         self.base.refreshHeaderView = refreshHeader
         self.base.refreshHeaderView?.refreshingClosure = refreshClosure
         self.base.addSubview(self.base.refreshHeaderView!)
@@ -79,7 +86,10 @@ public extension XR where Base: UIScrollView {
     // auto refresh for header.
     public func beginHeaderRefreshing() {
         
-        self.base.refreshHeaderView?.beginRefreshing()
+        DispatchQueue.main.async {
+            self.base.setContentOffset(CGPoint.zero, animated: false)
+            self.base.refreshHeaderView?.beginRefreshing()
+        }
     }
     
     // end refresh for header.
@@ -89,8 +99,11 @@ public extension XR where Base: UIScrollView {
     }
     
     /// MARK: - Pull to loading more
+    // heightForFooter: 真正的refreshFooterView显示的高度
+    // ignoreBottomHeight: 忽略的刷新底部高度，用来适配iPhoneX, XS, XR, XS Max机型
     public func addPullToRefreshFooter(refreshFooter: XRBaseRefreshFooter,
-                                     heightForFooter: CGFloat = 55,
+                                       heightForFooter: CGFloat = 60,
+                                       ignoreBottomHeight: CGFloat = XRRefreshMarcos.xr_BottomIndicatorHeight,
                                      refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         // remove last refreshFooter
@@ -104,7 +117,9 @@ public extension XR where Base: UIScrollView {
             scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
-        refreshFooter.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForFooter)
+        refreshFooter.ignoreBottomHeight = ignoreBottomHeight
+        refreshFooter.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForFooter + ignoreBottomHeight)
+        
         self.base.refreshFooterView = refreshFooter
         self.base.refreshFooterView?.refreshingClosure = refreshClosure
         self.base.addSubview(self.base.refreshFooterView!)
@@ -141,7 +156,12 @@ public extension XR where Base: UIScrollView {
 public extension XR where Base: WKWebView {
     
     /// MARK: - Pull to refreshing
-    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    // heightForFooter: 真正的refreshHeaderView显示的高度
+    // ignoreTopHeight: 忽略的刷新头部高度，用来适配iPhoneX, XS, XR, XS Max机型
+    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
+                                       heightForHeader: CGFloat = 70,
+                                       ignoreTopHeight: CGFloat = 0,
+                                       refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         self.base.scrollView.refreshHeaderView?.removeFromSuperview()
         
@@ -153,7 +173,9 @@ public extension XR where Base: WKWebView {
             scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
-        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader)
+        refreshHeader.ignoreTopHeight = ignoreTopHeight
+        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader + ignoreTopHeight)
+        
         self.base.scrollView.refreshHeaderView = refreshHeader
         self.base.scrollView.refreshHeaderView?.refreshingClosure = refreshClosure
         self.base.scrollView.addSubview(self.base.scrollView.refreshHeaderView!)
@@ -162,7 +184,10 @@ public extension XR where Base: WKWebView {
     // auto refresh for header.
     public func beginHeaderRefreshing() {
         
-        self.base.scrollView.refreshHeaderView?.beginRefreshing()
+        DispatchQueue.main.async {
+            self.base.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            self.base.scrollView.refreshHeaderView?.beginRefreshing()
+        }
     }
     
     // end refresh for header.
@@ -177,7 +202,12 @@ public extension XR where Base: WKWebView {
 extension XR where Base: UIWebView {
     
     /// MARK: - Pull to refreshing
-    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader, heightForHeader: CGFloat = 70, refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+    // heightForFooter: 真正的refreshHeaderView显示的高度
+    // ignoreTopHeight: 忽略的刷新头部高度，用来适配iPhoneX, XS, XR, XS Max机型
+    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
+                                       heightForHeader: CGFloat = 70,
+                                       ignoreTopHeight: CGFloat = 0,
+                                       refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         self.base.scrollView.refreshHeaderView?.removeFromSuperview()
         
@@ -189,7 +219,9 @@ extension XR where Base: UIWebView {
             scrollViewWidth = XRRefreshControlSettings.sharedSetting.screenSize.width
         }
         
-        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader)
+        refreshHeader.ignoreTopHeight = ignoreTopHeight
+        refreshHeader.frame = CGRect(x: 0, y: 0, width: scrollViewWidth, height: heightForHeader + ignoreTopHeight)
+        
         self.base.scrollView.refreshHeaderView = refreshHeader
         self.base.scrollView.refreshHeaderView?.refreshingClosure = refreshClosure
         self.base.scrollView.addSubview(self.base.scrollView.refreshHeaderView!)
@@ -198,7 +230,10 @@ extension XR where Base: UIWebView {
     // auto refresh for header.
     public func beginHeaderRefreshing() {
         
-        self.base.scrollView.refreshHeaderView?.beginRefreshing()
+        DispatchQueue.main.async {
+            self.base.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            self.base.scrollView.refreshHeaderView?.beginRefreshing()
+        }
     }
     
     // end refresh for header.

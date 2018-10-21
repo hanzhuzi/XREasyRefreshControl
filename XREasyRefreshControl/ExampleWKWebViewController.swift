@@ -53,7 +53,7 @@ class ExampleWKWebViewController: UIViewController {
         wkWebVw.uiDelegate = self
         wkWebVw.navigationDelegate = self
         
-        wkWebVw.xr.addPullToRefreshHeader(refreshHeader: CustomActivityRefreshHeader()) { [weak self] in
+        wkWebVw.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) { [weak self] in
             if let weakSelf = self {
                 weakSelf.wkWebVw.reload()
             }

@@ -59,6 +59,9 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
         }
     }
     
+    // 忽略的refreshHeaderView顶部高度
+    public var ignoreTopHeight: CGFloat = 0
+    
     // 是否允许下拉距离超过下拉控件高度的一半就自动下拉至刷新状态<当刷新控件高度比较高时，请设置为`true`>
     private var isTriggerRefreshMoreThanPullHalfing: Bool = false
     // 触发下拉距离超过一半自动下拉至刷新状态的控件的最大高度值，默认200.
@@ -227,8 +230,8 @@ open class XRBaseRefreshHeader: UIView , XRBaseRefreshHeaderProtocol {
                                 }
                                 
                                 if contentOffset.y < -contentInset_top {
-                                    let distance = fabs(contentOffset.y)
-                                    let absFullHeight = fabs(fullDisplayOffsetY)
+                                    let distance = abs(contentOffset.y)
+                                    let absFullHeight = abs(fullDisplayOffsetY)
                                     var progress = (distance - contentInset_top) / (absFullHeight - contentInset_top)
                                     progress = progress < 0 ? 0 : progress
                                     progress = progress > 1 ? 1 : progress

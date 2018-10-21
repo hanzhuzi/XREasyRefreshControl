@@ -28,7 +28,7 @@
 import Foundation
 import UIKit
 
-// 刷新状态
+/// refreshHeader, refreshFooter刷新状态
 public enum XRPullRefreshState {
     case idle           // 闲置时
     case pulling        // 下拉中(未超过可以刷新的下拉高度)
@@ -40,10 +40,11 @@ public enum XRPullRefreshState {
     case noMoreData     // 没有更多数据了
 }
 
-// 上拉加载触发方式
-// 上拉时需要松手才进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
-// 上拉时不需要松手即可进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
-// 上拉时只要footerView一出现即可进行刷新操作，上拉距离超出contentSize.height+contentInset.bottom
+/** refreshFooter上拉加载触发方式
+ - needPullRelease: 上拉时需要松手才进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
+- ignorePullRelease: 上拉时不需要松手即可进行刷新操作，且上拉距离需要完全超出contentSize.height+contentInset.bottom+footerView.height
+- ignorePullReleaseFast: 上拉时只要refreshFooterView进入屏幕即进行刷新操作，上拉距离超出contentSize.height+contentInset.bottom，如微信朋友圈即是这种方式.
+ */
 public enum XRRefreshFooterPullLoadingMode {
     case needPullRelease       // 需要松手才进行刷新
     case ignorePullRelease     // 只要达到一定的上拉距离即进行刷新
