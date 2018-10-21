@@ -4,8 +4,7 @@
 * A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements. 一款强大且支持自定制的iOS平台下，下拉刷新，上拉加载的刷新库。
 
 * These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView` and `WKWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
-
-通过为`UIScrollView`进行扩展，使得向任何有UIScrollView（或其任何子类）添加刷新header和刷新footer都将变得非常容易。像`UITableView`，`UICollectionView`，`UIWebView`以及`WKWebView`。
+通过为`UIScrollView`进行扩展，使得向任何有UIScrollView（或其任何子类）添加刷新header和刷新footer都将变得非常容易。像`UITableView`，         `UICollectionView`，`UIWebView`以及`WKWebView`。
 
 ## How to Use `XREasyRefreshControl`(如何安装？)
 
