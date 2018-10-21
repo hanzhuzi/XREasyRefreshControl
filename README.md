@@ -177,11 +177,11 @@ Very simple, you can specify the value of the `ignoreTopHeight` of `XRRefreshHea
 
 ![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo3.gif)
 
-### Customization(自定制刷新样式)
-
-你可以通过继承 `XRBaseRefreshHeader` 和 `XRBaseRefreshFooter`这两个类，通过写很少的代码就可以自定制出你想要的下拉刷新，上拉加载样式，还可以通过 `progressvaluechanged`的值更精确得控制动画。
+### Customization(如何自定制刷新样式？)
 
 You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`, override `refreshStateChanged`, and, if necessary, override `progressvaluechanged` to customize the drop-down refresh and drop-down loading effects you want.
+
+你可以通过继承 `XRBaseRefreshHeader` 和 `XRBaseRefreshFooter`这两个类，通过写很少的代码就可以自定制出你想要的下拉刷新，上拉加载样式，还可以通过 `progressvaluechanged`的值更精确得控制动画。
 
 ### Under the hood(实现原理)
 
