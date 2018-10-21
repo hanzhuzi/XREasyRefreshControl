@@ -14,13 +14,13 @@ Add `pod  'XREasyRefreshControl'` to your Podfile.
 * import XREasyRefresh
 
 Swift 4.2, Xcode 10. is supported in versions 1.2.1 and above.
-1.2.1版本以上支持Swift 4.2, Xcode 10.
+(1.2.1版本以上支持Swift 4.2, Xcode 10.)
   
 ### Manual import
 
 Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
 
-### Supports
+### Supports(系统，语言支持)
 
 * ARC
 * Swift 4.2
