@@ -5,6 +5,8 @@
 
 * These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView` and `WKWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
 
+通过为`UIScrollView`进行扩展，使得向任何有UIScrollView（或其任何子类）添加刷新header和刷新footer都将变得非常容易。像`UITableView`，`UICollectionView`，`UIWebView`以及`WKWebView`。
+
 ## How to Use `XREasyRefreshControl`(如何安装？)
 
 ### From CocoaPods
@@ -163,9 +165,9 @@ mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 
 ### How to adapt iPhoneX, iPhoneXS, XR, and XS Max? (如何适配iPhone X...)
 
-非常简单，你可以指定 `XRRefreshHeader`的`ignoreTopHeight`, 以及 `XRRefreshFooter`的`ignoreBottomHeight`的值，而`ignoreBottomHeight`默认已经适配好了，无须设置，当然，你也可以指定你想要的值。适配将变得非常简单。
-
 Very simple, you can specify the value of the `ignoreTopHeight` of `XRRefreshHeader`, and the value of `ignoreBottomHeight` of `XRRefreshFooter`, and `ignoreBottomHeight` is already adapted by default, no need to set, of course, you can also specify the value you want. Adaptation will become very simple.
+
+非常简单，你可以指定 `XRRefreshHeader`的`ignoreTopHeight`, 以及 `XRRefreshFooter`的`ignoreBottomHeight`的值，而`ignoreBottomHeight`默认已经适配好了，无须设置，当然，你也可以指定你想要的值。适配将变得非常简单。
 
 ### Rendering(效果图)
 
