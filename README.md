@@ -13,6 +13,9 @@ Add `pod  'XREasyRefreshControl'` to your Podfile.
 * pod install
 * import XREasyRefresh
 
+Swift 4.2, Xcode 10. is supported in versions 1.2.1 and above.
+1.2.1版本以上支持Swift 4.2, Xcode 10.
+  
 ### Manual import
 
 Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
