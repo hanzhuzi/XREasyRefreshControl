@@ -32,7 +32,7 @@ iPhone，iPad，Screen anyway.
 
 ## Usage
 
-### Optional (global configuration)(刷新库全局配置)
+### Optional (global configuration)(全局配置)
 
 add the code to `didFinishLaunchingWithOptions` function.
 ```swift
@@ -162,7 +162,7 @@ mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 
 ```
 
-### How to adapt iPhoneX, iPhoneXS, XR, and XS Max? (如何适配iPhone X...)
+### How to adapt iPhoneX, iPhoneXS, XR, and XS Max? (如何适配iPhoneX, iPhoneXS, XR, and XS Max？)
 
 Very simple, you can specify the value of the `ignoreTopHeight` of `XRRefreshHeader`, and the value of `ignoreBottomHeight` of `XRRefreshFooter`, and `ignoreBottomHeight` is already adapted by default, no need to set, of course, you can also specify the value you want. Adaptation will become very simple.
 
