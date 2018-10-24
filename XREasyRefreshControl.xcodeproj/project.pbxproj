@@ -12,7 +12,7 @@
 		0104CA10217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0104CA0F217C4CA400E90168 /* ExampleCollectionNavHiddenViewController.swift */; };
 		0107F7D72175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7D62175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift */; };
 		0107F7DA2175CE83000BE9C7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0107F7D82175CE83000BE9C7 /* Localizable.strings */; };
-		0107F7E62175D0A7000BE9C7 /* MRLocalizableStringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7E52175D0A7000BE9C7 /* MRLocalizableStringManager.swift */; };
+		0107F7E62175D0A7000BE9C7 /* XRLocalizableStringManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7E52175D0A7000BE9C7 /* XRLocalizableStringManager.swift */; };
 		0107F7E82175D1F0000BE9C7 /* LocalizableStringMarcos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7E72175D1F0000BE9C7 /* LocalizableStringMarcos.swift */; };
 		0107F7EA2175D442000BE9C7 /* XRCircleAnimatorRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7E92175D442000BE9C7 /* XRCircleAnimatorRefreshHeader.swift */; };
 		0107F7EC2175E190000BE9C7 /* CustomActivityRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0107F7EB2175E190000BE9C7 /* CustomActivityRefreshFooter.swift */; };
@@ -52,7 +52,7 @@
 		0107F7DE2175CFB8000BE9C7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Main.strings"; sourceTree = "<group>"; };
 		0107F7DF2175CFB8000BE9C7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		0107F7E02175CFB8000BE9C7 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hant"; path = "zh-Hant.lproj/Localizable.strings"; sourceTree = "<group>"; };
-		0107F7E52175D0A7000BE9C7 /* MRLocalizableStringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MRLocalizableStringManager.swift; sourceTree = "<group>"; };
+		0107F7E52175D0A7000BE9C7 /* XRLocalizableStringManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRLocalizableStringManager.swift; sourceTree = "<group>"; };
 		0107F7E72175D1F0000BE9C7 /* LocalizableStringMarcos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStringMarcos.swift; sourceTree = "<group>"; };
 		0107F7E92175D442000BE9C7 /* XRCircleAnimatorRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRCircleAnimatorRefreshHeader.swift; sourceTree = "<group>"; };
 		0107F7EB2175E190000BE9C7 /* CustomActivityRefreshFooter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomActivityRefreshFooter.swift; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				012B4C9220F789AD0049BB5A /* Marcos.swift */,
-				0107F7E52175D0A7000BE9C7 /* MRLocalizableStringManager.swift */,
+				0107F7E52175D0A7000BE9C7 /* XRLocalizableStringManager.swift */,
 				0107F7E72175D1F0000BE9C7 /* LocalizableStringMarcos.swift */,
 			);
 			path = Common;
@@ -377,7 +377,7 @@
 				013083762176DE3300F227BE /* UIScrollView+XRExtension.swift in Sources */,
 				0155059C20FC8A190082599C /* UIScrollView+XRRefresh.swift in Sources */,
 				0104CA0E217C496800E90168 /* ExampleNavHiddenViewController.swift in Sources */,
-				0107F7E62175D0A7000BE9C7 /* MRLocalizableStringManager.swift in Sources */,
+				0107F7E62175D0A7000BE9C7 /* XRLocalizableStringManager.swift in Sources */,
 				0107F7D72175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift in Sources */,
 				013083792176E96300F227BE /* ExampleCollectionViewCell.swift in Sources */,
 				012B4C9320F789AD0049BB5A /* Marcos.swift in Sources */,
