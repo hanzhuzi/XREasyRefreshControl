@@ -27,7 +27,7 @@ Download `XREasyRefreshControl` add the files in the `Source` directory to your 
 * Swift 4.2
 * iOS 8.0
 * Xcode 10 or Latter
-* Fixed iPhoneX, XS, XS Max, XR
+* Adaptation iPhoneX, iPhone XS, iPhone XS Max, iPhone XR
 iPhone，iPad，Screen anyway.
 
 ## Usage
