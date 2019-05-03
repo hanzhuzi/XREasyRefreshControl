@@ -45,6 +45,24 @@ final public class XRRefreshMarcos {
     }()
     
     //MARK: - 屏幕尺寸
+    // iPhone5, 5S,5C,SE
+    public static func iSiPhone5_5S_5C_SE() -> Bool {
+        
+        return (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 640, height: 1136)) : false) || (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 1136, height: 640)) : false)
+    }
+    
+    // iPhone6,6S,7,8
+    public static func iSiPhone6_6S_7_8() -> Bool {
+        
+        return (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 750, height: 1334)) : false) || (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 1334, height: 750)) : false)
+    }
+    
+    // iPhone6, 7, 8,Plus
+    public static func iSiPhone6_7_8Plus() -> Bool {
+        
+        return (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 1242, height: 2208)) : false) || (UIScreen.instancesRespond(to: #selector(getter: UIScreen.currentMode)) ? __CGSizeEqualToSize(UIScreen.main.currentMode!.size, CGSize(width: 2208, height: 1242)) : false)
+    }
+    
     // iPhoneX, XS
     static func iSiPhoneX_XS() -> Bool {
         

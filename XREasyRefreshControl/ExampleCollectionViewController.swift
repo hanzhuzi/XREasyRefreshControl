@@ -114,7 +114,7 @@ class ExampleCollectionViewController: UIViewController , UICollectionViewDelega
                     weakSelf.dataArray.removeAll()
                 }
                 
-                for _ in 0 ..< 15 {
+                for _ in 0 ..< 30 {
                     weakSelf.dataArray.append("--")
                 }
                 

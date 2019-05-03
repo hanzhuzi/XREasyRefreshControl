@@ -70,7 +70,7 @@ class ExampleTableViewController: UIViewController {
         mainTableView.tableFooterView = footerVw
         
         // 添加下拉刷新
-        mainTableView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader(), heightForHeader: 65) { [weak self] in
+        mainTableView.xr.addPullToRefreshHeader(refreshHeader: XRImageRefreshHeader(), heightForHeader: 65) { [weak self] in
             
             if let weakSelf = self {
                 weakSelf.requestForData(isRefresh: true, isPullToHeaderRefresh: true)
@@ -118,7 +118,7 @@ class ExampleTableViewController: UIViewController {
                     weakSelf.dataArray.removeAll()
                 }
                 
-                for index in 0 ..< 10 {
+                for index in 0 ..< 30 {
                     weakSelf.dataArray.append("tableViewCell->\(index)")
                 }
                 
@@ -128,19 +128,19 @@ class ExampleTableViewController: UIViewController {
                 
                 if weakSelf.dataArray.count > 0 {
                     // 添加上拉加载更多
-                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 60, refreshingClosure: {
+                    weakSelf.mainTableView.xr.addPullToRefreshFooter(refreshFooter: XRImageRefreshFooter(), heightForFooter: 60, refreshingClosure: {
                         weakSelf.requestForData(isRefresh: false, isPullToHeaderRefresh: true)
                     })
                 }
                 
                 // 服务端数据全部加载完毕时
-                if weakSelf.dataArray.count >= 40 {
+                if weakSelf.dataArray.count >= 120 {
                     // 显示无更多数据了
-                    weakSelf.mainTableView.xr.endFooterRefreshingWithNoMoreData()
+//                    weakSelf.mainTableView.xr.endFooterRefreshingWithNoMoreData()
                     //                    // 结束刷新，并移除loadingFooter
-                    //                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithRemoveLoadingMoreView()
+                    //                    weakSelf.mainTableView.xr.endFooterRefreshingWithRemoveLoadingMoreView()
                     //                    // 加载失败
-                    //                    weakSelf.mainCollectionVw.xr.endFooterRefreshingWithLoadingFailure()
+                                        weakSelf.mainTableView.xr.endFooterRefreshingWithLoadingFailure()
                 }
                 
             }

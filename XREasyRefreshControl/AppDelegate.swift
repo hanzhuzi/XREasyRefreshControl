@@ -39,9 +39,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 全局配置下拉刷新与上拉加载
         XRRefreshControlSettings.sharedSetting.configSettings(
             animateTimeForAdjustContentInSetTop: 0.5,
-            animateTimeForEndRefreshContentInSetTop: 0.3,
+            animateTimeForEndRefreshContentInSetTop: 0.5,
             afterDelayTimeForEndInsetTopRefreshing: 0.5,
-            pullLoadingMoreMode: .ignorePullReleaseFast,
+            pullLoadingMoreMode: .needPullRelease,
             refreshStatusLblTextColor: XRRefreshControlSettings.colorFromRGB(hexRGB: 0x333333),
             refreshStatusLblTextFont: UIFont.systemFont(ofSize: 13))
         

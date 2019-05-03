@@ -1,0 +1,16 @@
+PODS:
+  - XREasyRefreshControl (1.2.1)
+
+DEPENDENCIES:
+  - XREasyRefreshControl
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - XREasyRefreshControl
+
+SPEC CHECKSUMS:
+  XREasyRefreshControl: 55aa86d84f4e37dc7cac99c02ccc716c2eab1b6c
+
+PODFILE CHECKSUM: 78cca75c8c9a53e259113e5261d836414d63046b
+
+COCOAPODS: 1.5.3

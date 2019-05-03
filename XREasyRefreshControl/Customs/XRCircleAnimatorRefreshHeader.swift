@@ -28,6 +28,7 @@ private let kStrokeEndAnimationForCircleLayerKey: String = "kStrokeEndAnimationF
 
 public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     
+    lazy var backLayer: CAShapeLayer = CAShapeLayer()
     lazy var circleLayer: CAShapeLayer = CAShapeLayer()
     lazy var gradientLayer: CAGradientLayer = CAGradientLayer()
     
@@ -42,6 +43,9 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     public override func prepareForRefresh() {
         super.prepareForRefresh()
         
+        backLayer.backgroundColor = UIColor.clear.cgColor
+        self.layer.addSublayer(backLayer)
+        
         circleLayer.backgroundColor = UIColor.clear.cgColor
         circleLayer.fillColor = UIColor.clear.cgColor
         
@@ -52,7 +56,11 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         circleLayer.strokeStart = 0
         circleLayer.strokeEnd = 0
         
-        let gradientColors = [UIColor.blue, UIColor.green]
+        let gradientColors = [UIColor.init(red: CGFloat(160 / 255.0), green: CGFloat(160 / 255.0), blue: CGFloat(160 / 255.0), alpha: 1),
+                              UIColor.init(red: CGFloat(50 / 255.0), green: CGFloat(50 / 255.0), blue: CGFloat(50 / 255.0), alpha: 1),
+                              UIColor.init(red: CGFloat(160 / 255.0), green: CGFloat(160 / 255.0), blue: CGFloat(160 / 255.0), alpha: 1)
+                              
+                              ]
         var gradientCGColors: [CGColor] = []
         for gradientColor in gradientColors {
             gradientCGColors.append(gradientColor.cgColor)
@@ -62,7 +70,11 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
         gradientLayer.startPoint = CGPoint(x: 0, y: 0)
         gradientLayer.endPoint = CGPoint(x: 0, y: 1)
         gradientLayer.locations = [0, 1]
-        self.layer.addSublayer(gradientLayer)
+        self.backLayer.addSublayer(gradientLayer)
+        
+        backLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        circleLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        gradientLayer.anchorPoint = CGPoint(x: 0.5, y: 0.5)
     }
     
     override public func refreshStateChanged() {
@@ -116,32 +128,35 @@ public class XRCircleAnimatorRefreshHeader: XRBaseRefreshHeader {
     
     func layoutCircleLayer() {
         
+        backLayer.bounds = CGRect(x: 0, y: 0, width: 30, height: 30)
+        backLayer.position = CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5)
+        
         circleLayer.bounds = CGRect(x: 0, y: 0, width: 30, height: 30)
         circleLayer.position = CGPoint(x: circleLayer.bounds.size.width * 0.5, y: circleLayer.bounds.size.height * 0.5)
-        let bezierPath = UIBezierPath(arcCenter: CGPoint(x: circleLayer.bounds.size.width * 0.5, y: circleLayer.bounds.size.height * 0.5), radius: 12, startAngle: CGFloat(Double.pi / 180.0) * -70, endAngle: CGFloat(Double.pi / 180.0) * 250, clockwise: true)
+        let bezierPath = UIBezierPath(arcCenter: CGPoint(x: circleLayer.bounds.size.width * 0.5, y: circleLayer.bounds.size.height * 0.5), radius: 12, startAngle: CGFloat(Double.pi / 180.0) * 45.0, endAngle: CGFloat(Double.pi / 180.0) * 345.0, clockwise: true)
         circleLayer.path = bezierPath.cgPath
         
         gradientLayer.bounds = CGRect(x: 0, y: 0, width: 30, height: 30)
-        gradientLayer.position = CGPoint(x: self.bounds.size.width * 0.5, y: self.bounds.size.height * 0.5 + ignoreTopHeight * 0.5)
+        gradientLayer.position = CGPoint(x: 15, y: 15)
         gradientLayer.mask = circleLayer
     }
     
     // animate for circle layer
     func startAnimation() {
         
-        let rotateAnima = CABasicAnimation(keyPath: "transform.rotation")
+        let rotateAnima = CABasicAnimation(keyPath: "transform.rotation.z")
         rotateAnima.fromValue = 0
         rotateAnima.toValue = CGFloat(Double.pi * 2)
-        rotateAnima.duration = 0.5
+        rotateAnima.duration = 1
         rotateAnima.isRemovedOnCompletion = false
         rotateAnima.repeatCount = HUGE
         rotateAnima.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.linear)
-        gradientLayer.add(rotateAnima, forKey: kRotationAnimationForGradientLayerKey)
+        self.backLayer.add(rotateAnima, forKey: kRotationAnimationForGradientLayerKey)
     }
     
     func stopAnimation() {
         
-        gradientLayer.removeAnimation(forKey: kRotationAnimationForGradientLayerKey)
+        self.backLayer.removeAnimation(forKey: kRotationAnimationForGradientLayerKey)
     }
     
     func endCircleAnimation() {

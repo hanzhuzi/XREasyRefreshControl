@@ -63,8 +63,8 @@ class ViewController: UIViewController {
         
         mainTableView.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: "UITableViewCellNull")
         
-        print("\(UIScreen.main.bounds.size)")
         
+        debugPrint("屏幕分辨率：\(UIScreen.main.currentMode!.size)")
         
     }
     

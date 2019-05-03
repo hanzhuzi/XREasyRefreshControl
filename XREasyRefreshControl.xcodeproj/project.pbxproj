@@ -36,6 +36,12 @@
 		0155059A20FC8A190082599C /* XRActivityRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155059220FC8A190082599C /* XRActivityRefreshHeader.swift */; };
 		0155059B20FC8A190082599C /* DispatchQueue+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155059320FC8A190082599C /* DispatchQueue+XRRefresh.swift */; };
 		0155059C20FC8A190082599C /* UIScrollView+XRRefresh.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0155059420FC8A190082599C /* UIScrollView+XRRefresh.swift */; };
+		018C0B2D227BE69300A6B3C1 /* XRImageRefreshFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 018C0B2C227BE69300A6B3C1 /* XRImageRefreshFooter.swift */; };
+		0198CAF3227BD50800A55805 /* icon_pull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0198CAF1227BD50700A55805 /* icon_pull@2x.png */; };
+		0198CAF4227BD50800A55805 /* icon_pull@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0198CAF2227BD50800A55805 /* icon_pull@3x.png */; };
+		019A3F8D227AEB7800C212F8 /* XRImageRefreshHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 019A3F8C227AEB7800C212F8 /* XRImageRefreshHeader.swift */; };
+		019A3F95227AEFA300C212F8 /* loading@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 019A3F91227AEFA300C212F8 /* loading@2x.png */; };
+		019A3F96227AEFA300C212F8 /* loading@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 019A3F92227AEFA300C212F8 /* loading@3x.png */; };
 		01BE05572128389C00E5BE14 /* XRProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01BE05562128389C00E5BE14 /* XRProvider.swift */; };
 		4EA71D44E75A4D0765DE07F9 /* Pods_XREasyRefreshControl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7129A811767E2C64CDD5D38D /* Pods_XREasyRefreshControl.framework */; };
 /* End PBXBuildFile section */
@@ -78,6 +84,12 @@
 		0155059220FC8A190082599C /* XRActivityRefreshHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = XRActivityRefreshHeader.swift; sourceTree = "<group>"; };
 		0155059320FC8A190082599C /* DispatchQueue+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+XRRefresh.swift"; sourceTree = "<group>"; };
 		0155059420FC8A190082599C /* UIScrollView+XRRefresh.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+XRRefresh.swift"; sourceTree = "<group>"; };
+		018C0B2C227BE69300A6B3C1 /* XRImageRefreshFooter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRImageRefreshFooter.swift; sourceTree = "<group>"; };
+		0198CAF1227BD50700A55805 /* icon_pull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pull@2x.png"; sourceTree = "<group>"; };
+		0198CAF2227BD50800A55805 /* icon_pull@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_pull@3x.png"; sourceTree = "<group>"; };
+		019A3F8C227AEB7800C212F8 /* XRImageRefreshHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRImageRefreshHeader.swift; sourceTree = "<group>"; };
+		019A3F91227AEFA300C212F8 /* loading@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading@2x.png"; sourceTree = "<group>"; };
+		019A3F92227AEFA300C212F8 /* loading@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "loading@3x.png"; sourceTree = "<group>"; };
 		01BE05562128389C00E5BE14 /* XRProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XRProvider.swift; sourceTree = "<group>"; };
 		112C94F3005DC2BC6B4DF60F /* Pods-XREasyRefreshControl.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XREasyRefreshControl.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XREasyRefreshControl/Pods-XREasyRefreshControl.debug.xcconfig"; sourceTree = "<group>"; };
 		7129A811767E2C64CDD5D38D /* Pods_XREasyRefreshControl.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XREasyRefreshControl.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -118,7 +130,6 @@
 		0125F40920F601760027C078 = {
 			isa = PBXGroup;
 			children = (
-				015505A020FC8AAD0082599C /* Resources */,
 				0125F43D20F612780027C078 /* Source */,
 				0125F41420F601760027C078 /* XREasyRefreshControl */,
 				0125F41320F601760027C078 /* Products */,
@@ -138,6 +149,7 @@
 		0125F41420F601760027C078 /* XREasyRefreshControl */ = {
 			isa = PBXGroup;
 			children = (
+				019A3F8E227AEFA300C212F8 /* Resources */,
 				0107F7E12175D05F000BE9C7 /* Classes */,
 				0125F41520F601760027C078 /* AppDelegate.swift */,
 				0130836F2176CFC000F227BE /* ExampleCollectionViewController.swift */,
@@ -207,22 +219,28 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		015505A020FC8AAD0082599C /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
 		015505A520FC8AD50082599C /* Customs */ = {
 			isa = PBXGroup;
 			children = (
 				0107F7EB2175E190000BE9C7 /* CustomActivityRefreshFooter.swift */,
 				0107F7E92175D442000BE9C7 /* XRCircleAnimatorRefreshHeader.swift */,
 				0107F7D62175CE6B000BE9C7 /* CustomActivityRefreshHeader.swift */,
+				019A3F8C227AEB7800C212F8 /* XRImageRefreshHeader.swift */,
+				018C0B2C227BE69300A6B3C1 /* XRImageRefreshFooter.swift */,
 			);
 			path = Customs;
 			sourceTree = "<group>";
+		};
+		019A3F8E227AEFA300C212F8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0198CAF1227BD50700A55805 /* icon_pull@2x.png */,
+				0198CAF2227BD50800A55805 /* icon_pull@3x.png */,
+				019A3F91227AEFA300C212F8 /* loading@2x.png */,
+				019A3F92227AEFA300C212F8 /* loading@3x.png */,
+			);
+			path = Resources;
+			sourceTree = SOURCE_ROOT;
 		};
 		4E6AF37ACE3B84E579F10969 /* Frameworks */ = {
 			isa = PBXGroup;
@@ -304,8 +322,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				0125F42020F601770027C078 /* LaunchScreen.storyboard in Resources */,
+				019A3F96227AEFA300C212F8 /* loading@3x.png in Resources */,
 				0107F7DA2175CE83000BE9C7 /* Localizable.strings in Resources */,
+				0198CAF4227BD50800A55805 /* icon_pull@3x.png in Resources */,
 				0125F41D20F601770027C078 /* Assets.xcassets in Resources */,
+				019A3F95227AEFA300C212F8 /* loading@2x.png in Resources */,
+				0198CAF3227BD50800A55805 /* icon_pull@2x.png in Resources */,
 				0125F41B20F601760027C078 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -356,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				018C0B2D227BE69300A6B3C1 /* XRImageRefreshFooter.swift in Sources */,
 				0107F7EC2175E190000BE9C7 /* CustomActivityRefreshFooter.swift in Sources */,
 				0130836E2176CFAD00F227BE /* ExampleTableViewController.swift in Sources */,
 				0155059920FC8A190082599C /* UIView+XRExtension.swift in Sources */,
@@ -382,6 +405,7 @@
 				013083792176E96300F227BE /* ExampleCollectionViewCell.swift in Sources */,
 				012B4C9320F789AD0049BB5A /* Marcos.swift in Sources */,
 				0155059520FC8A190082599C /* XRActivityRefreshFooter.swift in Sources */,
+				019A3F8D227AEB7800C212F8 /* XRImageRefreshHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,17 +567,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = N6Y6HR96BA;
+				DEVELOPMENT_TEAM = 23PU435V7A;
 				INFOPLIST_FILE = XREasyRefreshControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xr.XREasyRefresh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quke.XREasyRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "975584aa-18eb-43c8-b940-847889c9a0bc";
-				PROVISIONING_PROFILE_SPECIFIER = teazhiNet_devAll;
+				PROVISIONING_PROFILE_SPECIFIER = quke_devAll;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -565,17 +589,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = N6Y6HR96BA;
+				DEVELOPMENT_TEAM = 23PU435V7A;
 				INFOPLIST_FILE = XREasyRefreshControl/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xr.XREasyRefresh;
+				PRODUCT_BUNDLE_IDENTIFIER = com.quke.XREasyRefresh;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "975584aa-18eb-43c8-b940-847889c9a0bc";
-				PROVISIONING_PROFILE_SPECIFIER = teazhiNet_devAll;
+				PROVISIONING_PROFILE_SPECIFIER = quke_devAll;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
