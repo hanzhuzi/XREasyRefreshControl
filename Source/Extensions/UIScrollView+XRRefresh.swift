@@ -1,6 +1,6 @@
 //
 //  UIScrollView+XRRefresh.swift
-//  
+//
 //  Copyright (c) 2018 - 2020 Ran Xu
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,29 +26,29 @@ import Foundation
 import UIKit
 import WebKit
 
-private var kRefreshHeaderViewAssociatedKey: String = "kRefreshHeaderViewAssociatedKey"
-private var kRefreshFooterViewAssociatedKey: String = "kRefreshFooterViewAssociatedKey"
+private var kXRRefreshHeaderViewAssociatedKey: String = "kXRRefreshHeaderViewAssociatedKey"
+private var kXRRefreshFooterViewAssociatedKey: String = "kXRRefreshFooterViewAssociatedKey"
 
 /// Extension for XRRefresh
 extension UIScrollView {
     
     var refreshHeaderView: XRBaseRefreshHeader? {
         get {
-            return objc_getAssociatedObject(self, &kRefreshHeaderViewAssociatedKey) as? XRBaseRefreshHeader
+            return objc_getAssociatedObject(self, &kXRRefreshHeaderViewAssociatedKey) as? XRBaseRefreshHeader
         }
         
         set {
-            objc_setAssociatedObject(self, &kRefreshHeaderViewAssociatedKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &kXRRefreshHeaderViewAssociatedKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
     var refreshFooterView: XRBaseRefreshFooter? {
         get {
-            return objc_getAssociatedObject(self, &kRefreshFooterViewAssociatedKey) as? XRBaseRefreshFooter
+            return objc_getAssociatedObject(self, &kXRRefreshFooterViewAssociatedKey) as? XRBaseRefreshFooter
         }
         
         set {
-            objc_setAssociatedObject(self, &kRefreshFooterViewAssociatedKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
+            objc_setAssociatedObject(self, &kXRRefreshFooterViewAssociatedKey, newValue, objc_AssociationPolicy.OBJC_ASSOCIATION_RETAIN_NONATOMIC)
         }
     }
     
@@ -60,7 +60,7 @@ public extension XR where Base: UIScrollView {
     /// MARK: - Pull to refreshing
     // heightForFooter: 真正的refreshHeaderView显示的高度
     // ignoreTopHeight: 忽略的刷新头部高度，用来适配iPhoneX, XS, XR, XS Max机型
-    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
+    func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
                                        heightForHeader: CGFloat = 70,
                                        ignoreTopHeight: CGFloat = 0,
                                        refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
@@ -84,16 +84,23 @@ public extension XR where Base: UIScrollView {
     }
     
     // auto refresh for header.
-    public func beginHeaderRefreshing() {
+    func beginHeaderRefreshing() {
         
         DispatchQueue.main.async {
-            self.base.setContentOffset(CGPoint.zero, animated: false)
+            // 若contentInset.top不为0，则contentOffset的初始y不是0，而是-contentInset.top
+            if self.base.contentInset.top != 0 {
+                self.base.setContentOffset(CGPoint(x: 0, y: -self.base.contentInset.top), animated: false)
+            }
+            else {
+                self.base.setContentOffset(CGPoint.zero, animated: false)
+            }
+            
             self.base.refreshHeaderView?.beginRefreshing()
         }
     }
     
     // end refresh for header.
-    public func endHeaderRefreshing() {
+    func endHeaderRefreshing() {
         
         self.base.refreshHeaderView?.endRefreshing()
     }
@@ -101,10 +108,10 @@ public extension XR where Base: UIScrollView {
     /// MARK: - Pull to loading more
     // heightForFooter: 真正的refreshFooterView显示的高度
     // ignoreBottomHeight: 忽略的刷新底部高度，用来适配iPhoneX, XS, XR, XS Max机型
-    public func addPullToRefreshFooter(refreshFooter: XRBaseRefreshFooter,
+    func addPullToRefreshFooter(refreshFooter: XRBaseRefreshFooter,
                                        heightForFooter: CGFloat = 60,
                                        ignoreBottomHeight: CGFloat = XRRefreshMarcos.xr_BottomIndicatorHeight,
-                                     refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
+                                       refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
         
         // remove last refreshFooter
         self.base.refreshFooterView?.removeFromSuperview()
@@ -127,25 +134,25 @@ public extension XR where Base: UIScrollView {
     
     // To end the bottom refresh method, be sure to finish the refresh after
     // the TableView or CollectionView reloadData is loaded
-    public func endFooterRefreshing() {
+    func endFooterRefreshing() {
         
         self.base.refreshFooterView?.endRefreshing()
     }
     
     // End refresh, bottom display no more data
-    public func endFooterRefreshingWithNoMoreData() {
+    func endFooterRefreshingWithNoMoreData() {
         
         self.base.refreshFooterView?.endRefreshingWithNoMoreData()
     }
     
     // End refresh, data load failed, click reload more
-    public func endFooterRefreshingWithLoadingFailure() {
+    func endFooterRefreshingWithLoadingFailure() {
         
         self.base.refreshFooterView?.endRefreshingWithLoadingFailure()
     }
     
     // The refresh ends, the data is all loaded, and the footerRefresh is removed
-    public func endFooterRefreshingWithRemoveLoadingMoreView() {
+    func endFooterRefreshingWithRemoveLoadingMoreView() {
         
         self.base.refreshFooterView?.removeLoadMoreRefreshing()
     }
@@ -158,7 +165,7 @@ public extension XR where Base: WKWebView {
     /// MARK: - Pull to refreshing
     // heightForFooter: 真正的refreshHeaderView显示的高度
     // ignoreTopHeight: 忽略的刷新头部高度，用来适配iPhoneX, XS, XR, XS Max机型
-    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
+    func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
                                        heightForHeader: CGFloat = 70,
                                        ignoreTopHeight: CGFloat = 0,
                                        refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
@@ -182,16 +189,22 @@ public extension XR where Base: WKWebView {
     }
     
     // auto refresh for header.
-    public func beginHeaderRefreshing() {
+    func beginHeaderRefreshing() {
         
         DispatchQueue.main.async {
-            self.base.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            // 若contentInset.top不为0，则contentOffset的初始y不是0，而是-contentInset.top
+            if self.base.scrollView.contentInset.top != 0 {
+                self.base.scrollView.setContentOffset(CGPoint(x: 0, y: -self.base.scrollView.contentInset.top), animated: false)
+            }
+            else {
+                self.base.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            }
             self.base.scrollView.refreshHeaderView?.beginRefreshing()
         }
     }
     
     // end refresh for header.
-    public func endHeaderRefreshing() {
+    func endHeaderRefreshing() {
         
         self.base.scrollView.refreshHeaderView?.endRefreshing()
     }
@@ -199,12 +212,12 @@ public extension XR where Base: WKWebView {
 }
 
 // MARK: - Provider for WKWebView
-extension XR where Base: UIWebView {
+public extension XR where Base: UIWebView {
     
     /// MARK: - Pull to refreshing
     // heightForFooter: 真正的refreshHeaderView显示的高度
     // ignoreTopHeight: 忽略的刷新头部高度，用来适配iPhoneX, XS, XR, XS Max机型
-    public func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
+    func addPullToRefreshHeader(refreshHeader: XRBaseRefreshHeader,
                                        heightForHeader: CGFloat = 70,
                                        ignoreTopHeight: CGFloat = 0,
                                        refreshingClosure refreshClosure:@escaping (() -> Swift.Void)) {
@@ -228,16 +241,22 @@ extension XR where Base: UIWebView {
     }
     
     // auto refresh for header.
-    public func beginHeaderRefreshing() {
+    func beginHeaderRefreshing() {
         
         DispatchQueue.main.async {
-            self.base.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            // 若contentInset.top不为0，则contentOffset的初始y不是0，而是-contentInset.top
+            if self.base.scrollView.contentInset.top != 0 {
+                self.base.scrollView.setContentOffset(CGPoint(x: 0, y: -self.base.scrollView.contentInset.top), animated: false)
+            }
+            else {
+                self.base.scrollView.setContentOffset(CGPoint.zero, animated: false)
+            }
             self.base.scrollView.refreshHeaderView?.beginRefreshing()
         }
     }
     
     // end refresh for header.
-    public func endHeaderRefreshing() {
+    func endHeaderRefreshing() {
         
         self.base.scrollView.refreshHeaderView?.endRefreshing()
     }
