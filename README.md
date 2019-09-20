@@ -168,13 +168,13 @@ Very simple, you can specify the value of the `ignoreTopHeight` of `XRRefreshHea
 
 非常简单，你可以指定 `XRRefreshHeader`的`ignoreTopHeight`, 以及 `XRRefreshFooter`的`ignoreBottomHeight`的值，而`ignoreBottomHeight`默认已经适配好了，无须设置，当然，你也可以指定你想要的值。适配将变得非常简单。
 
-### Rendering(效果图)
+### Reveal(效果图)
 
-![UITableView,UICollectionView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo1.gif)
-
-![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo2.gif)
-
-![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/XREasyRefreshControl/demo3.gif)
+![](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/1.gif)
+![](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/2.gif)
+![UITableView,UICollectionView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/demo1.gif)
+![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/demo2.gif)
+![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/demo3.gif)
 
 ### Customization(如何自定制刷新样式？)
 
