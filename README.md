@@ -23,9 +23,9 @@ Download `XREasyRefreshControl` project add the files in the `Source` directory 
 
 ### Supports(系统，语言支持)
 
-- Swift 4.0 +
-- iOS 8.0 +
-- Xcode 9.2 +
+- Swift 4.0+
+- iOS 8.0+
+- Xcode 10.0+
 - ARC
 - Adaptation iPhoneX, iPhone XS, iPhone XS Max, iPhone XR
   iPhone，iPad，Screen anyway.
