@@ -170,7 +170,8 @@ Very simple, you can specify the value of the `ignoreTopHeight` of `XRRefreshHea
 
 ### Reveal(效果图)
 
-![](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/2.gif)
+![image-w100](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/1.gif)
+![image-w100](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/2.gif)
 ![UITableView,UICollectionView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/demo1.gif)
 ![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/demo2.gif)
 ![UIWebView,WKWebView](https://github.com/hanzhuzi/XREasyRefreshControl/blob/master/gifs/demo3.gif)
