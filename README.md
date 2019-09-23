@@ -1,42 +1,42 @@
 ## XREasyRefreshControl
 
-* An easy way to use pull-to-refresh
-* 一款强大且支持自定制的iOS平台下，下拉刷新，上拉加载的刷新库。A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements. 
-
-* 为`UIScrollView`进行扩展，使得向任何有UIScrollView（或其任何子类）添加刷新header和刷新footer都将变得非常容易。像`UITableView`，         `UICollectionView`，`UIWebView`以及`WKWebView`。
-* These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView` and `WKWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
+- An easy way to use pull-to-refresh
+- 一款强大且支持自定制的iOS平台下，下拉刷新，上拉加载的刷新库。A powerful and lightweight pull-down refresh and pull-up load control.,you can customize your personality refresh according to the requirements. 
+- 为`UIScrollView`进行扩展，使得向任何有UIScrollView（或其任何子类）添加刷新header和刷新footer都将变得非常容易。像`UITableView`， `UICollectionView`，`UIWebView`以及`WKWebView`。
+- These `UIScrollView` categories makes it super easy to add pull-to-refresh and infinite scrolling fonctionalities to any `UIScrollView` (or any of its subclass). Like `UITableView`, `UICollectionView`, or `UIWebView` and `WKWebView`. Adding categories and methods to `UIScrollView` makes it easy to add refreshes to all subclasses of `UIScrollView`, yes, that's it!
 
 ## How to Use `XREasyRefreshControl`(如何使用？)
 
 ### Install From CocoaPods
 
 Add `pod  'XREasyRefreshControl'` to your Podfile.
-* pod install
-* import XREasyRefresh
+
+- $ pod install
+- import XREasyRefresh
 
 Swift 5.0, Xcode 10.2.1. is supported in versions 1.2.1 and above.
 (1.2.1版本以上支持Swift 5.0, Xcode 10.x)
-  
+
 ### Manual import
 
-Download `XREasyRefreshControl` add the files in the `Source` directory to your project files.
+Download `XREasyRefreshControl` project add the files in the `Source` directory to your project files.
 
 ### Supports(系统，语言支持)
 
-* ARC
-* Swift 5.0
-* iOS 8.0 or latter
-* Xcode 10 or Latter
-* Adaptation iPhoneX, iPhone XS, iPhone XS Max, iPhone XR
-iPhone，iPad，Screen anyway.
+- Swift 4.0 +
+- iOS 8.0 +
+- Xcode 9.2 +
+- ARC
+- Adaptation iPhoneX, iPhone XS, iPhone XS Max, iPhone XR
+  iPhone，iPad，Screen anyway.
 
 ## Usage
 
 ### Optional (global configuration)(全局配置)
 
 add the code to `didFinishLaunchingWithOptions` function.
-```swift
 
+```swift
 XRRefreshControlSettings.sharedSetting.configSettings(
             animateTimeForAdjustContentInSetTop: 0.5,
             animateTimeForEndRefreshContentInSetTop: 0.3,
@@ -50,7 +50,6 @@ XRRefreshControlSettings.sharedSetting.configSettings(
 ### Add refresh to UITableView(为UITableView添加header刷新和footer刷新)
 
 ```swift
-
 // add header Refresh
 mainTableView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader(), heightForHeader: 65, ignoreTopHeight: XRRefreshMarcos.xr_StatusBarHeight) {
 	// do request...
@@ -62,10 +61,10 @@ mainTableView.xr.addPullToRefreshFooter(refreshFooter: XRActivityRefreshFooter()
 })
 
 ```
+
 ### Add refresh to UICollectionView(为UICollectionView添加header刷新和footer刷新)
 
 ```swift
-
 // add header Refresh
 mainCollectionVw.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) { 
 	// do request...
@@ -77,10 +76,10 @@ mainCollectionVw.xr.addPullToRefreshFooter(refreshFooter: XRActivityRefreshFoote
 })
 
 ```
+
 ### Add refresh to UIWebView(为UIWebView添加header刷新扩展)
 
 ```swift
-
 // add header Refresh
 webView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) { [weak self] in
 	if let weakSelf = self {
@@ -89,10 +88,10 @@ webView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) { [w
 }
 
 ```
+
 ### Add refresh to WKWebView(为WKWebView添加header刷新扩展)
 
 ```swift
-
 // add header Refresh
 wk_webView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) { [weak self] in
 	if let weakSelf = self {
@@ -105,7 +104,6 @@ wk_webView.xr.addPullToRefreshHeader(refreshHeader: XRActivityRefreshHeader()) {
 ### Auto dropdown refresh(自定进行header下拉刷新)
 
 ```swift
-
 mainTableView.xr.beginHeaderRefreshing()
 
 ```
@@ -113,16 +111,13 @@ mainTableView.xr.beginHeaderRefreshing()
 ### End dropdown refresh(结束header刷新)
 
 ```swift
-
 mainTableView.xr.endHeaderRefreshing()
 
 ```
 
-
 ### Add a pull-up load(为UITableView，UICollectionView，UIWebView, WKWebView，UIScrollView添加刷新footer)
 
 ```swift
-
 mainTableView.xr.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivityRefreshFooter(), heightForFooter: 55) {
 
 	// do loading more request
@@ -133,7 +128,6 @@ mainTableView.xr.addPullToLoadingMoreWithRefreshFooter(refreshFooter: XRActivity
 ### End the pull up load more(结束footer刷新)
 
 ```swift
-
 mainTableView.xr.endFooterRefreshing()
 
 ```
@@ -141,7 +135,6 @@ mainTableView.xr.endFooterRefreshing()
 ### The end pull-up loads more, showing no more data(结束footer刷新，显示无更多数据提示)
 
 ```swift
-
 mainTableView.xr.endFooterRefreshingWithNoMoreData()
 
 ```
@@ -149,7 +142,6 @@ mainTableView.xr.endFooterRefreshingWithNoMoreData()
 ### End the pull up load more, remove the pull up load more controls(结束footer刷新，并移除刷新footer)
 
 ```swift
-
 mainTableView.xr.endFooterRefreshingWithRemoveLoadingMoreView()
 
 ```
@@ -157,7 +149,6 @@ mainTableView.xr.endFooterRefreshingWithRemoveLoadingMoreView()
 ### End the pull up load more, load failed, click reload(结束footer的刷新，显示加载失败，点击文字即可重新加载)
 
 ```swift
-
 mainTableView.xr.endFooterRefreshingWithLoadingFailure()
 
 ```
@@ -197,14 +188,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-
-
-
-
-
-
-
-
-
