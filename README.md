@@ -173,12 +173,6 @@ You can inherit the base classes `XRBaseRefreshHeader` and `XRBaseRefreshFooter`
 
 你可以通过继承 `XRBaseRefreshHeader` 和 `XRBaseRefreshFooter`这两个类，通过写很少的代码就可以自定制出你想要的下拉刷新，上拉加载样式，还可以通过 `progressvaluechanged`的值更精确得控制动画。
 
-### Under the hood(实现原理)
-
-XREasyRefreshControl extends `UIScrollView` by adding new public methods as well as a dynamic properties. 
-
-It uses key-value observing to track the scrollView's `contentOffset` and `contentSize`.
-
 ### LICENSE
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
